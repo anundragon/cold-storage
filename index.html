@@ -425,20 +425,26 @@ function toast(msg, type='ok'){
 
 const isLocal = () => API_URL==='PASTE_YOUR_APPS_SCRIPT_URL_HERE';
 
-// ── API call helper ─────────────────────────────────────────────────
+// ── API call helper — ใช้ text/plain เพื่อข้าม CORS preflight ────────
 async function api(action, body={}){
-  if(isLocal()) return {success:true}; // ข้ามถ้ายังไม่ตั้งค่า URL
-  const res = await fetch(API_URL, {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({action, ...body})
-  });
-  const data = await res.json();
-  if(data.error) throw new Error(data.error);
-  return data;
+  if(isLocal()) return {success:true};
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      // text/plain ไม่มี preflight → ข้าม CORS ได้
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify({action, ...body})
+    });
+    const text = await res.text();
+    const data = JSON.parse(text);
+    if(data.error) throw new Error(data.error);
+    return data;
+  } catch(e) {
+    throw e;
+  }
 }
 
-// ── โหลดข้อมูลทั้งหมดจาก Cloud ─────────────────────────────────────
+// ── โหลดข้อมูลทั้งหมดจาก Cloud ──────────────────────────────────────
 async function loadFromCloud(){
   if(isLocal()){
     const local=localStorage.getItem('coldstock_local');
@@ -448,8 +454,10 @@ async function loadFromCloud(){
   }
   setLoading(true,'กำลังโหลดข้อมูลจาก Google Sheets...');
   try {
+    // GET ไม่มี CORS ปัญหา
     const res = await fetch(`${API_URL}?action=getAll`);
-    const data = await res.json();
+    const text = await res.text();
+    const data = JSON.parse(text);
     if(data.error) throw new Error(data.error);
     db.rooms    = data.rooms    || [];
     db.cabinets = data.cabinets || [];
@@ -460,7 +468,7 @@ async function loadFromCloud(){
     if(db.rooms.length===0) await seedAndSaveRooms();
     toast('✓ โหลดข้อมูลสำเร็จ','ok');
   } catch(err){
-    toast('⚠ โหลดไม่ได้: '+err.message+' — ใช้ข้อมูล local แทน','err');
+    toast('⚠ โหลดไม่ได้: '+err.message,'err');
     const local=localStorage.getItem('coldstock_local');
     if(local){ db=JSON.parse(local); db.stocks.forEach(s=>{s.qty=Number(s.qty)||0;});}
     if(db.rooms.length===0) seedRooms();
