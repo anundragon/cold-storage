@@ -463,8 +463,27 @@ async function loadFromCloud(){
     db.cabinets = data.cabinets || [];
     db.stocks   = data.stocks   || [];
     db.history  = data.history  || [];
-    db.stocks.forEach(s=>{ s.qty=Number(s.qty)||0; });
-    db.history.forEach(h=>{ h.qty=Number(h.qty)||0; });
+    // normalize ทุก field ที่มาจาก Google Sheets
+    db.stocks.forEach(s=>{
+      s.qty         = Number(s.qty)||0;
+      s.depositDate = String(s.depositDate||'').slice(0,10);
+      s.expiry      = String(s.expiry||'').slice(0,10);
+      s.roomId      = String(s.roomId||'');
+      s.cabinetId   = String(s.cabinetId||'');
+      s.id          = String(s.id||'');
+    });
+    db.history.forEach(h=>{
+      h.qty       = Number(h.qty)||0;
+      h.roomId    = String(h.roomId||'');
+      h.cabinetId = String(h.cabinetId||'');
+      h.stockId   = String(h.stockId||'');
+      h.id        = String(h.id||'');
+    });
+    db.rooms.forEach(r=>{ r.id=String(r.id||''); });
+    db.cabinets.forEach(c=>{
+      c.id     = String(c.id||'');
+      c.roomId = String(c.roomId||'');
+    });
     if(db.rooms.length===0) await seedAndSaveRooms();
     toast('✓ โหลดข้อมูลสำเร็จ','ok');
   } catch(err){
