@@ -14,182 +14,153 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;}
-
-nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 1.5rem;
-  display:flex;align-items:center;gap:1.5rem;height:58px;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
-.logo{font-family:var(--mono);font-size:0.95rem;color:var(--accent);font-weight:600;letter-spacing:2px;white-space:nowrap;}
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 1.25rem;
+  display:flex;align-items:center;gap:1rem;height:58px;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
+.logo{font-family:var(--mono);font-size:0.9rem;color:var(--accent);font-weight:600;letter-spacing:2px;white-space:nowrap;}
 .logo span{color:var(--accent2);}
-.nav-links{display:flex;gap:0.15rem;flex-wrap:wrap;}
+.nav-links{display:flex;gap:0.1rem;flex-wrap:wrap;}
 .nav-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-family:var(--font);
-  font-size:0.85rem;padding:0.4rem 0.85rem;border-radius:6px;transition:all 0.2s;}
+  font-size:0.82rem;padding:0.38rem 0.75rem;border-radius:6px;transition:all 0.2s;}
 .nav-btn:hover{color:var(--text);background:var(--surface2);}
 .nav-btn.active{color:var(--accent);background:rgba(0,194,255,0.1);}
-
-main{max-width:1600px;margin:0 auto;padding:1.25rem;}
+main{max-width:1600px;margin:0 auto;padding:1.1rem;}
 .page{display:none;}.page.active{display:block;}
-
-/* STAT CARDS */
-.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.85rem;margin-bottom:1.25rem;}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.1rem;position:relative;overflow:hidden;}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.8rem;margin-bottom:1.1rem;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;position:relative;overflow:hidden;}
 .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
 .stat-card.blue::before{background:var(--accent);}
 .stat-card.green::before{background:var(--ok);}
 .stat-card.warn::before{background:var(--warn);}
 .stat-card.red::before{background:var(--danger);}
-.stat-label{font-size:0.68rem;color:var(--muted);margin-bottom:0.35rem;font-family:var(--mono);letter-spacing:1px;}
-.stat-value{font-size:2rem;font-weight:700;font-family:var(--mono);line-height:1;}
+.stat-label{font-size:0.66rem;color:var(--muted);margin-bottom:0.3rem;font-family:var(--mono);letter-spacing:1px;}
+.stat-value{font-size:1.9rem;font-weight:700;font-family:var(--mono);line-height:1;}
 .stat-card.blue .stat-value{color:var(--accent);}
 .stat-card.green .stat-value{color:var(--ok);}
 .stat-card.warn .stat-value{color:var(--warn);}
 .stat-card.red .stat-value{color:var(--danger);}
-.stat-sub{font-size:0.75rem;color:var(--muted);margin-top:0.35rem;}
-
-/* ALERT */
-.alert-box{background:rgba(255,183,3,0.07);border:1px solid rgba(255,183,3,0.3);border-radius:10px;padding:0.9rem 1.2rem;margin-bottom:1.25rem;}
-.alert-box h3{color:var(--warn);font-size:0.78rem;font-family:var(--mono);letter-spacing:1px;margin-bottom:0.5rem;}
-.alert-item{display:flex;align-items:center;gap:0.65rem;padding:0.38rem 0;border-bottom:1px solid rgba(255,183,3,0.1);font-size:0.85rem;flex-wrap:wrap;}
+.stat-sub{font-size:0.72rem;color:var(--muted);margin-top:0.3rem;}
+.alert-box{background:rgba(255,183,3,0.07);border:1px solid rgba(255,183,3,0.3);border-radius:10px;padding:0.85rem 1.1rem;margin-bottom:1.1rem;}
+.alert-box h3{color:var(--warn);font-size:0.75rem;font-family:var(--mono);letter-spacing:1px;margin-bottom:0.5rem;}
+.alert-item{display:flex;align-items:center;gap:0.6rem;padding:0.35rem 0;border-bottom:1px solid rgba(255,183,3,0.1);font-size:0.82rem;flex-wrap:wrap;}
 .alert-item:last-child{border:none;}
-
-/* BADGE */
-.badge{font-size:0.65rem;font-family:var(--mono);padding:2px 7px;border-radius:20px;white-space:nowrap;}
+.badge{font-size:0.63rem;font-family:var(--mono);padding:2px 7px;border-radius:20px;white-space:nowrap;}
 .badge.red{background:rgba(255,77,109,0.18);color:var(--danger);border:1px solid rgba(255,77,109,0.4);}
 .badge.warn{background:rgba(255,183,3,0.18);color:var(--warn);border:1px solid rgba(255,183,3,0.4);}
 .badge.green{background:rgba(6,214,160,0.13);color:var(--ok);border:1px solid rgba(6,214,160,0.3);}
 .badge.blue{background:rgba(0,194,255,0.13);color:var(--accent);border:1px solid rgba(0,194,255,0.3);}
-
-/* GLASS CODE */
-.gcod{display:inline-block;font-family:var(--mono);font-size:0.8rem;
-  background:rgba(0,255,204,0.08);color:var(--accent2);border:1px solid rgba(0,255,204,0.2);
-  padding:1px 7px;border-radius:4px;}
-.ccod{display:inline-block;font-family:var(--mono);font-size:0.78rem;
-  background:rgba(0,194,255,0.1);color:var(--accent);border:1px solid rgba(0,194,255,0.2);
-  padding:1px 6px;border-radius:4px;}
-
-/* ROOM BLOCKS */
-.rooms-outer{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem;margin-bottom:1.25rem;}
+.badge.gray{background:rgba(107,127,163,0.18);color:var(--muted);border:1px solid rgba(107,127,163,0.3);}
+.gcod{display:inline-block;font-family:var(--mono);font-size:0.78rem;background:rgba(0,255,204,0.08);color:var(--accent2);border:1px solid rgba(0,255,204,0.2);padding:1px 6px;border-radius:4px;}
+.ccod{display:inline-block;font-family:var(--mono);font-size:0.76rem;background:rgba(0,194,255,0.1);color:var(--accent);border:1px solid rgba(0,194,255,0.2);padding:1px 6px;border-radius:4px;}
+.rooms-outer{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1rem;margin-bottom:1.1rem;}
 .room-block{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-.room-block-header{background:var(--surface2);padding:0.8rem 1.1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
-.room-block-name{font-weight:700;font-size:0.95rem;}
-.cabinets-list{padding:0.6rem 1.1rem;}
-.cabinet-row{display:flex;align-items:center;gap:0.45rem;padding:0.35rem 0;border-bottom:1px solid rgba(30,58,95,0.4);font-size:0.85rem;}
+.room-block-header{background:var(--surface2);padding:0.75rem 1rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.room-block-name{font-weight:700;font-size:0.9rem;}
+.cabinets-list{padding:0.55rem 1rem;}
+.cabinet-row{display:flex;align-items:center;gap:0.4rem;padding:0.32rem 0;border-bottom:1px solid rgba(30,58,95,0.4);font-size:0.82rem;}
 .cabinet-row:last-child{border:none;}
-.cab-actions{margin-left:auto;display:flex;gap:0.3rem;}
-.room-block-footer{padding:0.65rem 1.1rem;border-top:1px solid var(--border);display:flex;gap:0.45rem;}
-
+.cab-actions{margin-left:auto;display:flex;gap:0.28rem;}
+.room-block-footer{padding:0.6rem 1rem;border-top:1px solid var(--border);display:flex;gap:0.4rem;}
+.btn{border:none;cursor:pointer;font-family:var(--font);border-radius:8px;font-size:0.82rem;font-weight:500;padding:0.42rem 0.85rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.35rem;}
+.btn-primary{background:var(--accent);color:#000;}.btn-primary:hover{background:#33cfff;}
+.btn-success{background:var(--ok);color:#000;}.btn-success:hover{background:#08f5ba;}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text);}.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.btn-sm{padding:0.26rem 0.55rem;font-size:0.74rem;}
+.btn-warn{background:var(--warn);color:#000;}.btn-warn:hover{background:#ffc933;}
+.btn-danger{background:var(--danger);color:#fff;}.btn-danger:hover{background:#ff6b85;}
+.btn-ghost{background:transparent;border:none;color:var(--muted);padding:0.18rem 0.42rem;font-size:0.76rem;cursor:pointer;border-radius:4px;}
+.btn-ghost:hover{color:var(--danger);}
+.table-wrap{overflow-x:auto;}
+table.std{width:100%;border-collapse:collapse;font-size:0.82rem;}
+table.std th{text-align:left;padding:0.55rem 0.8rem;color:var(--muted);font-family:var(--mono);font-size:0.66rem;letter-spacing:1px;border-bottom:1px solid var(--border);}
+table.std td{padding:0.55rem 0.8rem;border-bottom:1px solid rgba(30,58,95,0.5);vertical-align:middle;}
+table.std tr:hover td{background:var(--surface2);}
+.mono{font-family:var(--mono);}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.78);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;width:560px;max-width:96vw;padding:1.5rem;animation:fadeUp 0.2s ease;max-height:92vh;overflow-y:auto;}
+.modal-lg{width:720px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.modal-title{font-size:1rem;font-weight:700;margin-bottom:1rem;}
+.form-group{margin-bottom:0.9rem;}
+label{display:block;font-size:0.7rem;color:var(--muted);margin-bottom:0.28rem;font-family:var(--mono);letter-spacing:1px;}
+input,select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:0.52rem 0.78rem;color:var(--text);font-family:var(--font);font-size:0.86rem;outline:none;transition:border-color 0.2s;}
+input:focus,select:focus{border-color:var(--accent);}
+select option{background:var(--surface);}
+.modal-actions{display:flex;gap:0.55rem;justify-content:flex-end;margin-top:1rem;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;}
+.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.6rem;}
+.page-header h1{font-size:1.25rem;font-weight:700;}
+.filter-row{display:flex;gap:0.55rem;margin-bottom:0.85rem;flex-wrap:wrap;}
+.filter-row input,.filter-row select{width:auto;flex:1;min-width:115px;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.15rem;}
+.card-title{font-size:0.66rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.6rem;}
+.empty{text-align:center;padding:2rem;color:var(--muted);}
+.empty .icon{font-size:2rem;margin-bottom:0.6rem;opacity:0.3;}
 /* SUMMARY TABLE */
-.summary-section{margin-bottom:2rem;}
-.summary-section h2{font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--accent2);}
+.summary-section{margin-bottom:1.75rem;}
+.summary-section h2{font-size:0.95rem;font-weight:700;margin-bottom:0.65rem;color:var(--accent2);}
 .summary-wrap{overflow-x:auto;}
-.summary-table{border-collapse:collapse;font-size:0.85rem;min-width:400px;}
-.summary-table th{
-  background:var(--surface2);color:var(--muted);font-family:var(--mono);font-size:0.68rem;
-  letter-spacing:1px;padding:0.55rem 0.9rem;border:1px solid var(--border);text-align:center;white-space:nowrap;
-}
-.summary-table td{
-  padding:0.45rem 0.9rem;border:1px solid var(--border);text-align:center;
-  font-family:var(--mono);font-size:0.85rem;
-}
-.summary-table td.glass-label{
-  text-align:left;font-family:var(--font);color:var(--text);background:var(--surface2);
-  font-weight:600;white-space:nowrap;
-}
-.summary-table td.total-col{
-  background:rgba(0,194,255,0.06);color:var(--accent);font-weight:700;
-}
+.summary-table{border-collapse:collapse;font-size:0.82rem;min-width:380px;}
+.summary-table th{background:var(--surface2);color:var(--muted);font-family:var(--mono);font-size:0.65rem;letter-spacing:1px;padding:0.5rem 0.85rem;border:1px solid var(--border);text-align:center;white-space:nowrap;}
+.summary-table td{padding:0.42rem 0.85rem;border:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:0.82rem;}
+.summary-table td.glass-label{text-align:left;font-family:var(--font);color:var(--text);background:var(--surface2);font-weight:600;white-space:nowrap;}
+.summary-table td.total-col{background:rgba(0,194,255,0.06);color:var(--accent);font-weight:700;}
 .summary-table tr:hover td{background:rgba(255,255,255,0.03);}
 .summary-table tr:hover td.glass-label{background:var(--surface2);}
 .summary-table tr:hover td.total-col{background:rgba(0,194,255,0.1);}
 .summary-table td.zero{color:var(--border);}
 .summary-table td.has-val{color:var(--text);}
 .summary-table .row-total{background:rgba(6,214,160,0.06);font-weight:700;color:var(--ok);}
-.summary-table .thead-room th{background:rgba(0,194,255,0.12);color:var(--accent);font-size:0.75rem;letter-spacing:0;}
-.summary-table .thead-date th{background:var(--surface);color:var(--muted);font-size:0.65rem;font-weight:400;}
+.summary-table .thead-room th{background:rgba(0,194,255,0.12);color:var(--accent);font-size:0.72rem;letter-spacing:0;}
+.summary-table .thead-date th{background:var(--surface);color:var(--muted);font-size:0.62rem;font-weight:400;}
 .summary-table .thead-date th.exp-warn{color:var(--warn);}
 .summary-table .thead-date th.exp-ok{color:var(--ok);}
-.th-room-main{font-size:0.8rem!important;letter-spacing:0!important;color:var(--accent2)!important;}
-/* AGE COLOR — พื้นหลังตามอายุที่ฝาก */
-.age-fresh {background:rgba(6,214,160,0.18)!important;color:#b8ffed!important;}       /* 1-4 วัน เขียว */
-.age-mid   {background:rgba(120,220,100,0.15)!important;color:#d4f7c0!important;}      /* 5-9 วัน เขียวอ่อน */
-.age-warn  {background:rgba(255,183,3,0.20)!important;color:#ffe9a0!important;}        /* 10-15 วัน เหลือง */
-.age-over  {background:rgba(255,77,109,0.20)!important;color:#ffb3c0!important;}       /* เกิน 15 วัน แดง */
-.age-legend{display:flex;gap:0.65rem;flex-wrap:wrap;margin-bottom:0.85rem;align-items:center;}
-.age-dot{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;color:var(--muted);}
-.age-dot span{width:14px;height:14px;border-radius:3px;display:inline-block;}
-.age-dot .d1{background:rgba(6,214,160,0.4);}
-.age-dot .d2{background:rgba(120,220,100,0.35);}
-.age-dot .d3{background:rgba(255,183,3,0.45);}
-.age-dot .d4{background:rgba(255,77,109,0.4);}
-
-/* BUTTONS */
-.btn{border:none;cursor:pointer;font-family:var(--font);border-radius:8px;font-size:0.85rem;
-  font-weight:500;padding:0.45rem 0.9rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.35rem;}
-.btn-primary{background:var(--accent);color:#000;}.btn-primary:hover{background:#33cfff;}
-.btn-success{background:var(--ok);color:#000;}.btn-success:hover{background:#08f5ba;}
-.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text);}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-.btn-sm{padding:0.28rem 0.6rem;font-size:0.76rem;}
-.btn-warn{background:var(--warn);color:#000;}.btn-warn:hover{background:#ffc933;}
-.btn-ghost{background:transparent;border:none;color:var(--muted);padding:0.2rem 0.45rem;font-size:0.78rem;cursor:pointer;border-radius:4px;}
-.btn-ghost:hover{color:var(--danger);}
-
-/* TABLE */
-.table-wrap{overflow-x:auto;}
-table.std{width:100%;border-collapse:collapse;font-size:0.85rem;}
-table.std th{text-align:left;padding:0.6rem 0.85rem;color:var(--muted);font-family:var(--mono);font-size:0.68rem;letter-spacing:1px;border-bottom:1px solid var(--border);}
-table.std td{padding:0.6rem 0.85rem;border-bottom:1px solid rgba(30,58,95,0.5);}
-table.std tr:hover td{background:var(--surface2);}
-.mono{font-family:var(--mono);}
-
-/* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:200;
-  align-items:center;justify-content:center;backdrop-filter:blur(4px);}
-.modal-overlay.open{display:flex;}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  width:480px;max-width:96vw;padding:1.6rem;animation:fadeUp 0.2s ease;max-height:92vh;overflow-y:auto;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-.modal-title{font-size:1rem;font-weight:700;margin-bottom:1.1rem;}
-.form-group{margin-bottom:1rem;}
-label{display:block;font-size:0.72rem;color:var(--muted);margin-bottom:0.3rem;font-family:var(--mono);letter-spacing:1px;}
-input,select{width:100%;background:var(--bg);border:1px solid var(--border);
-  border-radius:7px;padding:0.55rem 0.8rem;color:var(--text);font-family:var(--font);
-  font-size:0.88rem;outline:none;transition:border-color 0.2s;}
-input:focus,select:focus{border-color:var(--accent);}
-select option{background:var(--surface);}
-.modal-actions{display:flex;gap:0.6rem;justify-content:flex-end;margin-top:1.1rem;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
-.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.85rem;}
-
-/* PAGE HEADER */
-.page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.1rem;flex-wrap:wrap;gap:0.65rem;}
-.page-header h1{font-size:1.3rem;font-weight:700;}
-.filter-row{display:flex;gap:0.6rem;margin-bottom:0.9rem;flex-wrap:wrap;}
-.filter-row input,.filter-row select{width:auto;flex:1;min-width:120px;}
-
-/* CARD */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.25rem;}
-.card-title{font-size:0.68rem;font-family:var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.65rem;}
-
-/* EMPTY */
-.empty{text-align:center;padding:2.5rem;color:var(--muted);}
-.empty .icon{font-size:2.2rem;margin-bottom:0.65rem;opacity:0.3;}
+.th-room-main{font-size:0.78rem!important;letter-spacing:0!important;color:var(--accent2)!important;}
+.age-fresh{background:rgba(6,214,160,0.18)!important;color:#b8ffed!important;}
+.age-mid{background:rgba(120,220,100,0.15)!important;color:#d4f7c0!important;}
+.age-warn{background:rgba(255,183,3,0.20)!important;color:#ffe9a0!important;}
+.age-over{background:rgba(255,77,109,0.20)!important;color:#ffb3c0!important;}
+.age-legend{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.8rem;align-items:center;}
+.age-dot{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.72rem;color:var(--muted);}
+.age-dot span{width:13px;height:13px;border-radius:3px;display:inline-block;}
+.age-dot .d1{background:rgba(6,214,160,0.4);}.age-dot .d2{background:rgba(120,220,100,0.35);}
+.age-dot .d3{background:rgba(255,183,3,0.45);}.age-dot .d4{background:rgba(255,77,109,0.4);}
+/* MULTI-ITEM ROWS */
+.item-rows{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:0.9rem;}
+.item-row{display:grid;grid-template-columns:1fr 80px 70px 32px;gap:0.5rem;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.65rem;}
+.item-row select,.item-row input{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.55rem;font-size:0.82rem;color:var(--text);font-family:var(--font);}
+.item-row select:focus,.item-row input:focus{border-color:var(--accent);outline:none;}
+.remove-row-btn{background:none;border:none;color:var(--danger);cursor:pointer;font-size:1rem;padding:0;line-height:1;}
+.add-row-btn{background:rgba(0,194,255,0.08);border:1px dashed rgba(0,194,255,0.3);color:var(--accent);border-radius:8px;padding:0.45rem;width:100%;font-size:0.8rem;cursor:pointer;font-family:var(--font);transition:all 0.2s;}
+.add-row-btn:hover{background:rgba(0,194,255,0.15);}
+/* PRINT SLIP */
+@media print{
+  body *{visibility:hidden;}
+  #print-area,#print-area *{visibility:visible;}
+  #print-area{position:fixed;inset:0;background:#fff;color:#000;padding:2rem;font-family:sans-serif;}
+}
+#print-area{display:none;}
+/* CANCEL badge */
+.cancelled{opacity:0.45;text-decoration:line-through;}
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
-@media(max-width:600px){main{padding:0.65rem;}.two-col,.three-col{grid-template-columns:1fr;}nav{height:auto;padding:0.5rem 1rem;gap:0.4rem;}}
+@media(max-width:600px){main{padding:0.65rem;}.two-col,.three-col{grid-template-columns:1fr;}nav{height:auto;padding:0.5rem 1rem;gap:0.4rem;}.item-row{grid-template-columns:1fr 70px 60px 28px;}}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">❄ COLD<span>STOCK</span></div>
+  <div class="logo" style="font-size:0.82rem;">🐉 ร้านอนันต์<span> แก้วมังกร</span></div>
   <div class="nav-links">
     <button class="nav-btn active" onclick="showPage('dashboard')">📊 แดชบอร์ด</button>
     <button class="nav-btn" onclick="showPage('summary')">📋 สรุปคงเหลือ</button>
-    <button class="nav-btn" onclick="showPage('rooms')">🏠 ห้องเย็น / ตู้</button>
+    <button class="nav-btn" onclick="showPage('rooms')">🏠 ห้องเย็น/ตู้</button>
     <button class="nav-btn" onclick="showPage('stock')">📦 สต็อก</button>
     <button class="nav-btn" onclick="showPage('history')">🕒 ประวัติ</button>
+    <button class="nav-btn" onclick="showPage('settings')">⚙️ ตั้งค่า</button>
   </div>
-  <button class="nav-btn" style="margin-left:auto;color:var(--accent2);border:1px solid rgba(0,255,204,0.2);border-radius:6px;"
-    onclick="refreshAll()" title="โหลดข้อมูลล่าสุดจาก Cloud">🔄 Refresh</button>
+  <button class="nav-btn" style="margin-left:auto;color:var(--accent2);border:1px solid rgba(0,255,204,0.2);border-radius:6px;" onclick="refreshAll()">🔄 Refresh</button>
 </nav>
 
 <main>
@@ -198,7 +169,10 @@ select option{background:var(--surface);}
 <div class="page active" id="page-dashboard">
   <div class="page-header">
     <h1>แดชบอร์ด</h1>
-    <span id="dash-date" style="color:var(--muted);font-family:var(--mono);font-size:0.78rem;"></span>
+    <div style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;">
+      <button class="btn btn-outline btn-sm" onclick="openStockPrintPreview()">📄 ปริ้นสรุปสต็อก</button>
+      <span id="dash-date" style="color:var(--muted);font-family:var(--mono);font-size:0.76rem;"></span>
+    </div>
   </div>
   <div class="dash-grid" id="dash-stats"></div>
   <div id="dash-alerts"></div>
@@ -217,11 +191,9 @@ select option{background:var(--surface);}
 <div class="page" id="page-summary">
   <div class="page-header">
     <h1>สรุปคงเหลือแต่ละตู้</h1>
-    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-      <select id="sum-room-filter" onchange="renderSummary()" style="width:auto;min-width:140px;">
-        <option value="">-- ทุกห้องเย็น --</option>
-      </select>
-    </div>
+    <select id="sum-room-filter" onchange="renderSummary()" style="width:auto;min-width:135px;">
+      <option value="">-- ทุกห้องเย็น --</option>
+    </select>
   </div>
   <div id="summary-container"></div>
 </div>
@@ -239,7 +211,7 @@ select option{background:var(--surface);}
 <div class="page" id="page-stock">
   <div class="page-header">
     <h1>สต็อกแก้วมังกร</h1>
-    <div style="display:flex;gap:0.45rem;flex-wrap:wrap;">
+    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
       <button class="btn btn-success" onclick="openModal('deposit')">📥 ฝากสินค้า</button>
       <button class="btn btn-warn" onclick="openModal('withdraw')">📤 เบิกสินค้า</button>
     </div>
@@ -252,7 +224,7 @@ select option{background:var(--surface);}
   <div class="card" style="padding:0;">
     <div class="table-wrap">
       <table class="std">
-        <thead><tr><th>เบอร์แก้ว</th><th>ห้องเย็น</th><th>รหัสตู้</th><th>จำนวน</th><th>หน่วย</th><th>วันฝาก</th><th>หมดอายุ</th><th>สถานะ</th></tr></thead>
+        <thead><tr><th>เบอร์แก้ว</th><th>ห้องเย็น</th><th>ตู้</th><th>จำนวน</th><th>หน่วย</th><th>วันฝาก</th><th>หมดอายุ</th><th>สถานะ</th></tr></thead>
         <tbody id="stock-table"></tbody>
       </table>
     </div>
@@ -275,9 +247,59 @@ select option{background:var(--surface);}
   <div class="card" style="padding:0;">
     <div class="table-wrap">
       <table class="std">
-        <thead><tr><th>วันที่/เวลา</th><th>ประเภท</th><th>เบอร์แก้ว</th><th>ห้องเย็น</th><th>ตู้</th><th>จำนวน</th><th>หน่วย</th><th>หมายเหตุ</th></tr></thead>
+        <thead><tr><th>วันที่/เวลา</th><th>ประเภท</th><th>เบอร์แก้ว</th><th>ห้องเย็น</th><th>ตู้</th><th>จำนวน</th><th>หน่วย</th><th>ผู้ทำรายการ</th><th>หมายเหตุ</th><th>จัดการ</th></tr></thead>
         <tbody id="history-table"></tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: SLIP PREVIEW -->
+<div class="modal-overlay" id="modal-preview">
+  <div class="modal" style="width:520px;max-width:97vw;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+      <div class="modal-title" style="margin:0;">🖨 พรีวิวใบเบิก</div>
+      <div style="display:flex;gap:0.5rem;">
+        <button class="btn btn-primary btn-sm" onclick="doPrint('slip')">🖨 ปริ้น</button>
+        <button class="btn btn-outline btn-sm" onclick="closeModal('preview')">ปิด</button>
+      </div>
+    </div>
+    <div id="slip-preview-content" style="background:#fff;color:#000;border-radius:8px;padding:1.5rem;font-family:IBM Plex Sans Thai,sans-serif;border:1px solid #ddd;"></div>
+  </div>
+</div>
+
+<!-- MODAL: STOCK SUMMARY PRINT -->
+<div class="modal-overlay" id="modal-stock-print">
+  <div class="modal" style="width:680px;max-width:97vw;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+      <div class="modal-title" style="margin:0;">📄 พรีวิวสรุปสต็อก</div>
+      <div style="display:flex;gap:0.5rem;">
+        <button class="btn btn-primary btn-sm" onclick="doPrint('stock')">🖨 ปริ้น A4</button>
+        <button class="btn btn-outline btn-sm" onclick="closeModal('stock-print')">ปิด</button>
+      </div>
+    </div>
+    <div id="stock-print-content" style="background:#fff;color:#000;border-radius:8px;padding:1.5rem;font-family:IBM Plex Sans Thai,sans-serif;border:1px solid #ddd;max-height:65vh;overflow-y:auto;"></div>
+  </div>
+</div>
+
+<!-- SETTINGS -->
+<div class="page" id="page-settings">
+  <div class="page-header">
+    <h1>⚙️ ตั้งค่า</h1>
+  </div>
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+    <div class="card" style="flex:1;min-width:280px;max-width:460px;">
+      <div class="card-title">รายชื่อผู้เบิก / ผู้ฝาก</div>
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+        <input type="text" id="new-person-input" placeholder="ใส่ชื่อผู้เบิก/ผู้ฝาก" style="flex:1;">
+        <button class="btn btn-primary" onclick="addPerson()">➕ เพิ่ม</button>
+      </div>
+      <div id="person-list"></div>
+    </div>
+    <div class="card" style="flex:1;min-width:280px;max-width:460px;">
+      <div class="card-title">ปริ้นรายงาน</div>
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">พรีวิวและปริ้นสรุปสต็อกทั้งหมดใน 1 หน้า A4</p>
+      <button class="btn btn-primary" onclick="openStockPrintPreview()">📄 พรีวิวสรุปสต็อก A4</button>
     </div>
   </div>
 </div>
@@ -303,8 +325,8 @@ select option{background:var(--surface);}
     <div class="modal-title">🗄 เพิ่มตู้</div>
     <input type="hidden" id="cab-room-id">
     <div class="form-group"><label>ห้องเย็น</label><input type="text" id="cab-room-display" readonly style="background:var(--surface2);color:var(--muted);"></div>
-    <div class="form-group"><label>รหัสตู้</label><input type="text" id="cab-code" placeholder="เช่น 1274, 7/5, ตู้ A"></div>
-    <div class="form-group"><label>หมายเหตุ — ไม่บังคับ</label><input type="text" id="cab-note" placeholder="คำอธิบาย"></div>
+    <div class="form-group"><label>รหัสตู้</label><input type="text" id="cab-code" placeholder="เช่น 1274, 7/5"></div>
+    <div class="form-group"><label>หมายเหตุ — ไม่บังคับ</label><input type="text" id="cab-note"></div>
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeModal('cabinet')">ยกเลิก</button>
       <button class="btn btn-primary" onclick="addCabinet()">เพิ่มตู้</button>
@@ -312,9 +334,9 @@ select option{background:var(--surface);}
   </div>
 </div>
 
-<!-- MODAL: DEPOSIT -->
+<!-- MODAL: DEPOSIT (หลายเบอร์) -->
 <div class="modal-overlay" id="modal-deposit">
-  <div class="modal">
+  <div class="modal modal-lg">
     <div class="modal-title">📥 ฝากสินค้า</div>
     <div class="two-col">
       <div class="form-group">
@@ -326,33 +348,31 @@ select option{background:var(--surface);}
         <select id="dep-cab"><option value="">-- เลือกตู้ --</option></select>
       </div>
     </div>
-    <div class="form-group">
-      <label>เบอร์แก้ว</label>
-      <select id="dep-glass">
-        <option value="">-- เลือกเบอร์ --</option>
-        <option>A00</option><option>A0</option><option>A1</option>
-        <option>B00</option><option>B0</option><option>B1</option>
-        <option>1</option><option>b3</option>
-        <option>E00</option><option>E0</option><option>E01</option><option>E1</option><option>E2</option>
-        <option>D00</option><option>D0</option><option>D01</option><option>D1</option><option>D2</option>
-      </select>
-    </div>
-    <div class="three-col">
-      <div class="form-group"><label>จำนวน</label><input type="number" id="dep-qty" min="1" placeholder="0"></div>
-      <div class="form-group"><label>หน่วย</label><input type="text" id="dep-unit" placeholder="กก./ชิ้น"></div>
+    <div class="two-col">
       <div class="form-group"><label>วันที่ฝาก</label><input type="date" id="dep-date"></div>
+      <div class="form-group"><label>หน่วย</label><input type="text" id="dep-unit" placeholder="กก. / ลัง / ชิ้น"></div>
     </div>
-    <div class="form-group"><label>หมายเหตุ — ไม่บังคับ</label><input type="text" id="dep-note" placeholder="บันทึก"></div>
+    <div class="form-group"><label>ผู้ฝาก — ไม่บังคับ</label><select id="dep-person"><option value="">-- เลือกผู้ฝาก --</option></select></div>
+    <!-- รายการเบอร์ -->
+    <label style="font-size:0.7rem;color:var(--muted);font-family:var(--mono);letter-spacing:1px;">รายการเบอร์แก้ว</label>
+    <div style="display:grid;grid-template-columns:1fr 90px 28px;gap:0.4rem;margin-bottom:0.3rem;padding:0 0.1rem;">
+      <span style="font-size:0.68rem;color:var(--muted);">เบอร์แก้ว</span>
+      <span style="font-size:0.68rem;color:var(--muted);">จำนวน</span>
+      <span></span>
+    </div>
+    <div class="item-rows" id="dep-items"></div>
+    <button class="add-row-btn" onclick="addDepItem()">+ เพิ่มเบอร์</button>
+    <div class="form-group" style="margin-top:0.9rem;"><label>หมายเหตุ — ไม่บังคับ</label><input type="text" id="dep-note"></div>
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeModal('deposit')">ยกเลิก</button>
-      <button class="btn btn-success" onclick="doDeposit()">ฝากสินค้า</button>
+      <button class="btn btn-success" onclick="doDeposit()">📥 ฝากสินค้า</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL: WITHDRAW -->
+<!-- MODAL: WITHDRAW (หลายเบอร์) -->
 <div class="modal-overlay" id="modal-withdraw">
-  <div class="modal">
+  <div class="modal modal-lg">
     <div class="modal-title">📤 เบิกสินค้า</div>
     <div class="two-col">
       <div class="form-group">
@@ -364,221 +384,202 @@ select option{background:var(--surface);}
         <select id="wth-cab" onchange="wthCabChange()"><option value="">-- ทุกตู้ --</option></select>
       </div>
     </div>
-    <div class="form-group">
-      <label>เลือกสต็อก</label>
-      <select id="wth-stock" onchange="wthStockChange()"><option value="">-- เลือก --</option></select>
+    <div class="form-group"><label>ผู้เบิก</label><select id="wth-person"><option value="">-- เลือกผู้เบิก --</option></select></div>
+    <!-- รายการเบอร์ -->
+    <label style="font-size:0.7rem;color:var(--muted);font-family:var(--mono);letter-spacing:1px;">รายการเบอร์แก้ว</label>
+    <div style="display:grid;grid-template-columns:1fr 90px 28px;gap:0.4rem;margin-bottom:0.3rem;padding:0 0.1rem;">
+      <span style="font-size:0.68rem;color:var(--muted);">เบอร์แก้ว (จากสต็อก)</span>
+      <span style="font-size:0.68rem;color:var(--muted);">จำนวน</span>
+      <span></span>
     </div>
-    <div id="wth-info" style="font-size:0.8rem;color:var(--muted);margin-bottom:0.9rem;padding:0.45rem 0.7rem;background:var(--surface2);border-radius:6px;display:none;"></div>
-    <div class="form-group"><label>จำนวนที่เบิก</label><input type="number" id="wth-qty" min="1" placeholder="0"></div>
-    <div class="form-group"><label>หมายเหตุ — ไม่บังคับ</label><input type="text" id="wth-note" placeholder="เบิกเพื่ออะไร"></div>
+    <div class="item-rows" id="wth-items"></div>
+    <button class="add-row-btn" onclick="addWthItem()">+ เพิ่มเบอร์</button>
+    <div class="form-group" style="margin-top:0.9rem;"><label>หมายเหตุ — ไม่บังคับ</label><input type="text" id="wth-note"></div>
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeModal('withdraw')">ยกเลิก</button>
-      <button class="btn btn-warn" onclick="doWithdraw()">เบิกสินค้า</button>
+      <button class="btn btn-warn" onclick="doWithdraw(false)">📤 เบิกสินค้า</button>
+      <button class="btn btn-primary" onclick="doWithdraw(true)">🖨 เบิก + ดูใบเบิก</button>
     </div>
   </div>
 </div>
 
+<!-- MODAL: CANCEL CONFIRM -->
+<div class="modal-overlay" id="modal-cancel">
+  <div class="modal">
+    <div class="modal-title">⚠️ ยืนยันการยกเลิกรายการ</div>
+    <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1rem;" id="cancel-desc"></p>
+    <p style="color:var(--warn);font-size:0.82rem;">ระบบจะคืนจำนวนสต็อกกลับอัตโนมัติ</p>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('cancel')">ปิด</button>
+      <button class="btn btn-danger" onclick="confirmCancel()">ยืนยันยกเลิก</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRINT AREA -->
+<div id="print-area"></div>
+
 <script>
 // ===== CONSTANTS =====
 const GLASS_SIZES=['A00','A0','A1','B00','B0','B1','1','b3','E00','E0','E01','E1','E2','D00','D0','D01','D1','D2'];
-
-// ====================================================================
-// 🔧 วางลิงก์ Google Apps Script ของคุณที่นี่ (บรรทัดเดียวที่ต้องแก้)
-// ====================================================================
-const API_URL = 'https://script.google.com/macros/s/AKfycbyoZ5vQjT-C4O3bnY1fNMhydBlpzIAIE5fuG9AqdW6byafaMItoKgRcWw73JdEGOi_fpQ/exec';
-// ตัวอย่าง: const API_URL = 'https://script.google.com/macros/s/ABCxyz.../exec';
-// ====================================================================
+const API_URL='https://script.google.com/macros/s/AKfycbyoZ5vQjT-C4O3bnY1fNMhydBlpzIAIE5fuG9AqdW6byafaMItoKgRcWw73JdEGOi_fpQ/exec';
 
 // ===== DATA =====
-let db = {rooms:[],cabinets:[],stocks:[],history:[]};
+let db={rooms:[],cabinets:[],stocks:[],history:[]};
+let cancelTargetId=null;
 
-// ── UI helpers ──────────────────────────────────────────────────────
-function setLoading(on, msg='กำลังโหลด...'){
-  let el = document.getElementById('loading-overlay');
-  if(!el){
-    el = document.createElement('div');
-    el.id='loading-overlay';
-    el.style.cssText=`position:fixed;inset:0;background:rgba(10,15,30,0.85);z-index:9999;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
-      font-family:'IBM Plex Sans Thai',sans-serif;color:#e2eaf4;backdrop-filter:blur(3px);`;
-    el.innerHTML=`<div style="width:42px;height:42px;border:3px solid #1e3a5f;
-      border-top-color:#00c2ff;border-radius:50%;animation:spin 0.7s linear infinite;"></div>
-      <div id="loading-msg" style="font-size:0.9rem;color:#6b7fa3;"></div>
-      <style>@keyframes spin{to{transform:rotate(360deg);}}</style>`;
-    document.body.appendChild(el);
-  }
-  document.getElementById('loading-msg').textContent = msg;
-  el.style.display = on ? 'flex' : 'none';
+// ===== UI HELPERS =====
+function setLoading(on,msg='กำลังโหลด...'){
+  let el=document.getElementById('loading-overlay');
+  if(!el){el=document.createElement('div');el.id='loading-overlay';
+    el.style.cssText='position:fixed;inset:0;background:rgba(10,15,30,0.85);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;font-family:IBM Plex Sans Thai,sans-serif;color:#e2eaf4;backdrop-filter:blur(3px);';
+    el.innerHTML='<div style="width:40px;height:40px;border:3px solid #1e3a5f;border-top-color:#00c2ff;border-radius:50%;animation:spin 0.7s linear infinite;"></div><div id="loading-msg" style="font-size:0.88rem;color:#6b7fa3;"></div><style>@keyframes spin{to{transform:rotate(360deg);}}</style>';
+    document.body.appendChild(el);}
+  document.getElementById('loading-msg').textContent=msg;
+  el.style.display=on?'flex':'none';
 }
-
-function toast(msg, type='ok'){
+function toast(msg,type='ok'){
   const colors={ok:'#06d6a0',err:'#ff4d6d',info:'#00c2ff'};
   const el=document.createElement('div');
-  el.style.cssText=`position:fixed;bottom:1.5rem;right:1.5rem;z-index:9998;
-    background:#111827;border:1px solid ${colors[type]||colors.ok};color:${colors[type]||colors.ok};
-    padding:0.65rem 1.1rem;border-radius:10px;font-size:0.85rem;max-width:320px;
-    font-family:'IBM Plex Sans Thai',sans-serif;box-shadow:0 4px 20px rgba(0,0,0,0.4);`;
-  el.textContent=msg;
-  document.body.appendChild(el);
-  setTimeout(()=>el.remove(),3500);
+  el.style.cssText=`position:fixed;bottom:1.5rem;right:1.5rem;z-index:9998;background:#111827;border:1px solid ${colors[type]||colors.ok};color:${colors[type]||colors.ok};padding:0.6rem 1rem;border-radius:10px;font-size:0.83rem;max-width:300px;font-family:IBM Plex Sans Thai,sans-serif;box-shadow:0 4px 20px rgba(0,0,0,0.4);`;
+  el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),3500);
 }
 
-const isLocal = () => API_URL==='PASTE_YOUR_APPS_SCRIPT_URL_HERE';
-
-// ── API call helper — ใช้ text/plain เพื่อข้าม CORS preflight ────────
-async function api(action, body={}){
-  if(isLocal()) return {success:true};
-  try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      // text/plain ไม่มี preflight → ข้าม CORS ได้
-      headers: {'Content-Type': 'text/plain;charset=utf-8'},
-      body: JSON.stringify({action, ...body})
-    });
-    const text = await res.text();
-    const data = JSON.parse(text);
-    if(data.error) throw new Error(data.error);
-    return data;
-  } catch(e) {
-    throw e;
-  }
+// ===== API =====
+async function api(action,body={}){
+  const res=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,...body})});
+  const text=await res.text();
+  try{const d=JSON.parse(text);if(d.error)throw new Error(d.error);return d;}
+  catch(e){throw new Error('ตอบกลับไม่ใช่ JSON');}
 }
 
-// ── โหลดข้อมูลทั้งหมดจาก Cloud ──────────────────────────────────────
+function normalizeDB(){
+  db.stocks.forEach(s=>{
+    s.id=String(s.id||'');s.roomId=String(s.roomId||'');s.cabinetId=String(s.cabinetId||'');
+    s.qty=Number(s.qty)||0;s.glassNo=String(s.glassNo||'');
+    s.depositDate=String(s.depositDate||'').slice(0,10);
+    s.expiry=String(s.expiry||'').slice(0,10);
+    s.cancelled=s.cancelled==='TRUE'||s.cancelled===true||s.cancelled==='true';
+  });
+  db.history.forEach(h=>{
+    h.id=String(h.id||'');h.roomId=String(h.roomId||'');h.cabinetId=String(h.cabinetId||'');
+    h.qty=Number(h.qty)||0;h.glassNo=String(h.glassNo||'');
+    h.cancelled=h.cancelled==='TRUE'||h.cancelled===true||h.cancelled==='true';
+    h.batchId=String(h.batchId||'');
+  });
+  db.rooms.forEach(r=>{r.id=String(r.id||'');});
+  db.cabinets.forEach(c=>{c.id=String(c.id||'');c.roomId=String(c.roomId||'');});
+}
+
 async function loadFromCloud(){
-  if(isLocal()){
-    const local=localStorage.getItem('coldstock_local');
-    if(local) db=JSON.parse(local);
-    if(db.rooms.length===0) await seedAndSaveRooms();
-    return;
-  }
   setLoading(true,'กำลังโหลดข้อมูลจาก Google Sheets...');
-  try {
-    // GET ไม่มี CORS ปัญหา
-    const res = await fetch(`${API_URL}?action=getAll`);
-    const text = await res.text();
-    const data = JSON.parse(text);
-    if(data.error) throw new Error(data.error);
-    db.rooms    = data.rooms    || [];
-    db.cabinets = data.cabinets || [];
-    db.stocks   = data.stocks   || [];
-    db.history  = data.history  || [];
-    // normalize ทุก field ที่มาจาก Google Sheets
-    db.stocks.forEach(s=>{
-      s.qty         = Number(s.qty)||0;
-      s.depositDate = String(s.depositDate||'').slice(0,10);
-      s.expiry      = String(s.expiry||'').slice(0,10);
-      s.roomId      = String(s.roomId||'');
-      s.cabinetId   = String(s.cabinetId||'');
-      s.id          = String(s.id||'');
-    });
-    db.history.forEach(h=>{
-      h.qty       = Number(h.qty)||0;
-      h.roomId    = String(h.roomId||'');
-      h.cabinetId = String(h.cabinetId||'');
-      h.stockId   = String(h.stockId||'');
-      h.id        = String(h.id||'');
-    });
-    db.rooms.forEach(r=>{ r.id=String(r.id||''); });
-    db.cabinets.forEach(c=>{
-      c.id     = String(c.id||'');
-      c.roomId = String(c.roomId||'');
-    });
-    if(db.rooms.length===0) await seedAndSaveRooms();
+  try{
+    const res=await fetch(`${API_URL}?action=getAll`);
+    const text=await res.text();
+    const data=JSON.parse(text);
+    if(data.error)throw new Error(data.error);
+    db.rooms=data.rooms||[];db.cabinets=data.cabinets||[];
+    db.stocks=data.stocks||[];db.history=data.history||[];
+    normalizeDB();
+    if(db.rooms.length===0)await seedAndSaveRooms();
+    localStorage.setItem('coldstock_local',JSON.stringify(db));
     toast('✓ โหลดข้อมูลสำเร็จ','ok');
-  } catch(err){
+  }catch(err){
     toast('⚠ โหลดไม่ได้: '+err.message,'err');
     const local=localStorage.getItem('coldstock_local');
-    if(local){ db=JSON.parse(local); db.stocks.forEach(s=>{s.qty=Number(s.qty)||0;});}
-    if(db.rooms.length===0) seedRooms();
+    if(local){db=JSON.parse(local);normalizeDB();}
+    if(db.rooms.length===0)seedRooms();
   }
   setLoading(false);
 }
+function cacheLocal(){localStorage.setItem('coldstock_local',JSON.stringify(db));}
+function save(){cacheLocal();}
+async function seedAndSaveRooms(){seedRooms();for(const r of db.rooms)await api('addRoom',{row:r}).catch(()=>{});}
+function seedRooms(){['นิวมนชัย','เฮงเฮง','สง่า','คิงส์แครอท','ไอยรา','LQ'].forEach(name=>{db.rooms.push({id:uid(),name,temp:'',createdAt:new Date().toISOString()});});}
 
-// cache local เสมอ (ใช้ตอน offline)
-function cacheLocal(){ localStorage.setItem('coldstock_local',JSON.stringify(db)); }
-
-// seed ห้องเย็นตั้งต้น แล้วบันทึกขึ้น cloud
-async function seedAndSaveRooms(){
-  seedRooms();
-  for(const r of db.rooms) await api('addRoom',{row:r}).catch(()=>{});
+// ===== PERSONS =====
+function getPersons(){
+  try{return JSON.parse(localStorage.getItem('coldstock_persons'))||[];}
+  catch{return[];}
 }
-function seedRooms(){
-  ['นิวมนชัย','เฮงเฮง','สง่า','คิงส์แครอท','ไอยรา','LQ'].forEach(name=>{
-    db.rooms.push({id:uid(),name,temp:'',createdAt:new Date().toISOString()});
-  });
+function savePersons(list){localStorage.setItem('coldstock_persons',JSON.stringify(list));}
+
+function addPerson(){
+  const inp=document.getElementById('new-person-input');
+  const name=inp.value.trim();
+  if(!name){alert('กรุณาใส่ชื่อ');return;}
+  const list=getPersons();
+  if(list.includes(name)){alert('มีชื่อนี้อยู่แล้ว');return;}
+  list.push(name);savePersons(list);
+  inp.value='';renderPersonList();populatePersonSelects();
+  toast('✓ เพิ่มชื่อแล้ว');
 }
-
-// ── save() — เขียนเฉพาะ action ที่เปลี่ยน (append-safe) ─────────────
-// เรียกผ่าน wrapper เฉพาะจุด ไม่ได้ save ทั้งก้อนอีกต่อไป
-function save(){ cacheLocal(); } // ใช้เป็น fallback cache เท่านั้น
-
-// ===== UTILS =====
+function deletePerson(name){
+  const list=getPersons().filter(p=>p!==name);
+  savePersons(list);renderPersonList();populatePersonSelects();
+}
+function renderPersonList(){
+  const list=getPersons();
+  const el=document.getElementById('person-list');
+  if(!el)return;
+  if(list.length===0){el.innerHTML='<div style="color:var(--muted);font-size:0.85rem;padding:0.5rem 0;">ยังไม่มีรายชื่อ</div>';return;}
+  el.innerHTML=list.map(p=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0.75rem;background:var(--surface2);border:1px solid var(--border);border-radius:8px;margin-bottom:0.4rem;">
+      <span style="font-size:0.9rem;">👤 ${p}</span>
+      <button class="btn-ghost" onclick="deletePerson('${p.replace(/'/g,"\\'")}')">🗑</button>
+    </div>`).join('');
+}
+function populatePersonSelects(){
+  const list=getPersons();
+  const opts='<option value="">-- เลือก --</option>'+list.map(p=>`<option value="${p}">${p}</option>`).join('');
+  const dep=document.getElementById('dep-person');if(dep)dep.innerHTML=opts;
+  const wth=document.getElementById('wth-person');if(wth)wth.innerHTML=opts;
+}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
 function today(){return new Date().toISOString().slice(0,10);}
 function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x.toISOString().slice(0,10);}
-function daysLeft(exp){
-  if(!exp) return 999;
-  const n=new Date(); n.setHours(0,0,0,0);
-  const dateStr=String(exp).slice(0,10);
-  const e=new Date(dateStr); e.setHours(0,0,0,0);
-  return Math.round((e-n)/86400000);
-}
-function daysSince(dep){
-  if(!dep) return 0;
-  const n=new Date(); n.setHours(0,0,0,0);
-  // ตัดเอาแค่ส่วนวันที่ กัน timezone จาก Google Sheets
-  const dateStr=String(dep).slice(0,10);
-  const d=new Date(dateStr); d.setHours(0,0,0,0);
-  return Math.round((n-d)/86400000);
-}
-function ageCellClass(depositDate){
-  if(!depositDate)return'';
-  const d=daysSince(depositDate);
-  if(d<=4) return'age-fresh';
-  if(d<=9) return'age-mid';
-  if(d<=15)return'age-warn';
-  return'age-over';
-}
-function fmtDate(d){
-  if(!d) return'-';
-  // Google Sheets อาจส่งมาเป็น "2026-05-06T17:00:00.000Z" → ตัดเอาแค่ส่วนวันที่
-  const s = String(d).slice(0,10);
-  const parts = s.split('-');
-  if(parts.length!==3) return String(d);
-  return`${parts[2]}/${parts[1]}/${parts[0]}`;
-}
+function daysLeft(exp){if(!exp)return 999;const n=new Date();n.setHours(0,0,0,0);const e=new Date(String(exp).slice(0,10));e.setHours(0,0,0,0);return Math.round((e-n)/86400000);}
+function daysSince(dep){if(!dep)return 0;const n=new Date();n.setHours(0,0,0,0);const d=new Date(String(dep).slice(0,10));d.setHours(0,0,0,0);return Math.round((n-d)/86400000);}
+function fmtDate(d){if(!d)return'-';const s=String(d).slice(0,10);const p=s.split('-');if(p.length!==3)return s;return`${p[2]}/${p[1]}/${p[0]}`;}
 function fmtDT(iso){const d=new Date(iso);return d.toLocaleDateString('th-TH',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});}
 function getRoomName(id){const r=db.rooms.find(r=>String(r.id)===String(id));return r?r.name:'?';}
 function getCabCode(id){const c=db.cabinets.find(c=>String(c.id)===String(id));return c?c.code:'?';}
 function getRoomCabs(roomId){return db.cabinets.filter(c=>String(c.roomId)===String(roomId));}
+function ageCellClass(dep){if(!dep)return'';const d=daysSince(dep);if(d<=4)return'age-fresh';if(d<=9)return'age-mid';if(d<=15)return'age-warn';return'age-over';}
 function expiryBadge(d){
   if(d<0)return`<span class="badge red">หมดอายุแล้ว</span>`;
   if(d===0)return`<span class="badge red">หมดวันนี้</span>`;
   if(d<=3)return`<span class="badge warn">เหลือ ${d} วัน</span>`;
   return`<span class="badge green">เหลือ ${d} วัน</span>`;
 }
+function activeStocks(){return db.stocks.filter(s=>s.qty>0&&!s.cancelled);}
 
 // ===== NAV =====
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
-  const idx=['dashboard','summary','rooms','stock','history'].indexOf(name);
-  document.querySelectorAll('.nav-btn')[idx].classList.add('active');
-  populateAllSelects();
+  const idx=['dashboard','summary','rooms','stock','history','settings'].indexOf(name);
+  if(idx>=0)document.querySelectorAll('.nav-btn')[idx].classList.add('active');
+  populateAllSelects();populatePersonSelects();
   if(name==='dashboard')renderDashboard();
   if(name==='summary')renderSummary();
   if(name==='rooms')renderRooms();
   if(name==='stock')renderStock();
   if(name==='history')renderHistory();
+  if(name==='settings')renderPersonList();
+}
+async function refreshAll(){
+  await loadFromCloud();
+  const active=document.querySelector('.page.active');
+  if(active){const id=active.id.replace('page-','');showPage(id);}
 }
 
 // ===== MODALS =====
 function openModal(name){
-  populateAllSelects();
-  if(name==='deposit'){document.getElementById('dep-date').value=today();depRoomChange();}
-  if(name==='withdraw'){wthRoomChange();}
+  populateAllSelects();populatePersonSelects();
+  if(name==='deposit'){document.getElementById('dep-date').value=today();depRoomChange();initDepItems();}
+  if(name==='withdraw'){wthRoomChange();initWthItems();}
   document.getElementById('modal-'+name).classList.add('open');
 }
 function closeModal(name){document.getElementById('modal-'+name).classList.remove('open');}
@@ -587,8 +588,7 @@ function openCabinetModal(roomId){
   const room=db.rooms.find(r=>r.id===roomId);
   document.getElementById('cab-room-id').value=roomId;
   document.getElementById('cab-room-display').value=room?room.name:'';
-  document.getElementById('cab-code').value='';
-  document.getElementById('cab-note').value='';
+  document.getElementById('cab-code').value='';document.getElementById('cab-note').value='';
   document.getElementById('modal-cabinet').classList.add('open');
 }
 
@@ -605,41 +605,68 @@ function populateAllSelects(){
   setEl('sf-glass','<option value="">-- ทุกเบอร์ --</option>'+glassOpts);
   setEl('hf-glass','<option value="">-- ทุกเบอร์ --</option>'+glassOpts);
   setEl('sum-room-filter','<option value="">-- ทุกห้องเย็น --</option>'+roomOpts);
-  sfRoomChange();hfRoomChange();
 }
-
 function cabOpts(roomId,allLabel='-- ทุกตู้ --'){
   const cabs=roomId?getRoomCabs(roomId):[];
   return`<option value="">${allLabel}</option>`+cabs.map(c=>`<option value="${c.id}">${c.code}${c.note?' - '+c.note:''}</option>`).join('');
 }
-function depRoomChange(){document.getElementById('dep-cab').innerHTML=cabOpts(document.getElementById('dep-room').value,'-- เลือกตู้ --');}
+function depRoomChange(){document.getElementById('dep-cab').innerHTML=cabOpts(document.getElementById('dep-room').value,'-- เลือกตู้ --');rebuildWthStockOpts();}
 function wthRoomChange(){document.getElementById('wth-cab').innerHTML=cabOpts(document.getElementById('wth-room').value);wthCabChange();}
-function wthCabChange(){
+function wthCabChange(){rebuildWthStockOpts();}
+function sfRoomChange(){document.getElementById('sf-cab').innerHTML=cabOpts(document.getElementById('sf-room').value);renderStock();}
+function hfRoomChange(){document.getElementById('hf-cab').innerHTML=cabOpts(document.getElementById('hf-room').value);renderHistory();}
+
+// สร้าง options สต็อกสำหรับเบิก
+function getWthStockOpts(){
   const rid=document.getElementById('wth-room').value;
   const cid=document.getElementById('wth-cab').value;
-  let stocks=db.stocks.filter(s=>s.qty>0);
+  let stocks=activeStocks();
   if(rid)stocks=stocks.filter(s=>s.roomId===rid);
   if(cid)stocks=stocks.filter(s=>s.cabinetId===cid);
   stocks.sort((a,b)=>GLASS_SIZES.indexOf(a.glassNo)-GLASS_SIZES.indexOf(b.glassNo));
-  const sel=document.getElementById('wth-stock');
-  sel.innerHTML=stocks.length===0?'<option value="">ไม่มีสต็อก</option>':
-    '<option value="">-- เลือก --</option>'+stocks.map(s=>`<option value="${s.id}">[${s.glassNo||'?'}] ${getRoomName(s.roomId)} / ${getCabCode(s.cabinetId)} · เหลือ ${s.qty} ${s.unit}</option>`).join('');
-  wthStockChange();
+  // ถ้าเลือกห้องเย็นแล้ว ไม่ต้องแสดงชื่อห้องเย็นซ้ำ
+  const showRoom=!rid;
+  return'<option value="">-- เลือกเบอร์ --</option>'+stocks.map(s=>{
+    const label=showRoom
+      ?`[${s.glassNo}] ${getRoomName(s.roomId)} / ตู้ ${getCabCode(s.cabinetId)} — เหลือ ${s.qty} ${s.unit}`
+      :`[${s.glassNo}] ตู้ ${getCabCode(s.cabinetId)} — เหลือ ${s.qty} ${s.unit}`;
+    return`<option value="${s.id}">${label}</option>`;
+  }).join('');
 }
-function wthStockChange(){
-  const sid=document.getElementById('wth-stock').value;
-  const s=db.stocks.find(x=>x.id===sid);
-  const info=document.getElementById('wth-info');
-  if(s){info.style.display='block';info.innerHTML=`เบอร์: <strong>${s.glassNo||'-'}</strong> &nbsp;|&nbsp; มีในสต็อก: <strong>${s.qty} ${s.unit}</strong> &nbsp;|&nbsp; หมดอายุ: <strong>${fmtDate(s.expiry)}</strong>`;}
-  else{info.style.display='none';}
+function rebuildWthStockOpts(){
+  document.querySelectorAll('.wth-stock-sel').forEach(sel=>{const cur=sel.value;sel.innerHTML=getWthStockOpts();sel.value=cur;});
 }
-function sfRoomChange(){
-  const rid=document.getElementById('sf-room').value;
-  document.getElementById('sf-cab').innerHTML=cabOpts(rid);renderStock();
+
+// ===== MULTI-ITEM DEPOSIT =====
+function initDepItems(){
+  document.getElementById('dep-items').innerHTML='';addDepItem();
 }
-function hfRoomChange(){
-  const rid=document.getElementById('hf-room').value;
-  document.getElementById('hf-cab').innerHTML=cabOpts(rid);renderHistory();
+function addDepItem(){
+  const glassOpts=GLASS_SIZES.map(g=>`<option value="${g}">${g}</option>`).join('');
+  const row=document.createElement('div');
+  row.className='item-row';
+  row.style.cssText='display:grid;grid-template-columns:1fr 90px 28px;gap:0.5rem;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.45rem 0.6rem;margin-bottom:0.4rem;';
+  row.innerHTML=`
+    <select style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.5rem;font-size:0.82rem;color:var(--text);font-family:var(--font);outline:none;">
+      <option value="">-- เบอร์ --</option>${glassOpts}
+    </select>
+    <input type="number" min="1" placeholder="จำนวน" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.5rem;font-size:0.82rem;color:var(--text);font-family:var(--font);outline:none;width:100%;">
+    <button class="remove-row-btn" onclick="this.parentElement.remove()">✕</button>`;
+  document.getElementById('dep-items').appendChild(row);
+}
+
+// ===== MULTI-ITEM WITHDRAW =====
+function initWthItems(){
+  document.getElementById('wth-items').innerHTML='';addWthItem();
+}
+function addWthItem(){
+  const row=document.createElement('div');
+  row.style.cssText='display:grid;grid-template-columns:1fr 90px 28px;gap:0.5rem;align-items:center;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.45rem 0.6rem;margin-bottom:0.4rem;';
+  row.innerHTML=`
+    <select class="wth-stock-sel" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.5rem;font-size:0.82rem;color:var(--text);font-family:var(--font);outline:none;">${getWthStockOpts()}</select>
+    <input type="number" min="1" placeholder="จำนวน" style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:0.4rem 0.5rem;font-size:0.82rem;color:var(--text);font-family:var(--font);outline:none;width:100%;">
+    <button class="remove-row-btn" onclick="this.parentElement.remove()">✕</button>`;
+  document.getElementById('wth-items').appendChild(row);
 }
 
 // ===== ROOM CRUD =====
@@ -648,28 +675,21 @@ async function addRoom(){
   const temp=document.getElementById('rm-temp').value.trim();
   if(!name){alert('กรุณาใส่ชื่อห้องเย็น');return;}
   const row={id:uid(),name,temp,createdAt:new Date().toISOString()};
-  db.rooms.push(row); cacheLocal();
-  closeModal('room');
+  db.rooms.push(row);cacheLocal();closeModal('room');
   document.getElementById('rm-name').value='';document.getElementById('rm-temp').value='';
   renderRooms();populateAllSelects();
-  try{ await api('addRoom',{row}); toast('✓ เพิ่มห้องเย็นแล้ว'); }
-  catch(e){ toast('⚠ บันทึก cloud ไม่ได้','err'); }
+  try{await api('addRoom',{row});toast('✓ เพิ่มห้องเย็นแล้ว');}catch(e){toast('⚠ บันทึก cloud ไม่ได้','err');}
 }
 async function deleteRoom(id){
   if(!confirm('ลบห้องเย็นนี้? ตู้และสต็อกทั้งหมดจะถูกลบด้วย'))return;
-  // ลบ cabinets และ stocks ใน cloud ด้วย
   const cabIds=db.cabinets.filter(c=>c.roomId===id).map(c=>c.id);
   db.rooms=db.rooms.filter(r=>r.id!==id);
   db.cabinets=db.cabinets.filter(c=>c.roomId!==id);
   db.stocks=db.stocks.filter(s=>s.roomId!==id);
-  cacheLocal(); renderRooms(); populateAllSelects();
-  try{
-    await api('deleteRoom',{id});
-    for(const cid of cabIds) await api('deleteCabinet',{id:cid}).catch(()=>{});
-  } catch(e){ toast('⚠ ลบ cloud ไม่สมบูรณ์','err'); }
+  cacheLocal();renderRooms();populateAllSelects();
+  try{await api('deleteRoom',{id});for(const cid of cabIds)await api('deleteCabinet',{id:cid}).catch(()=>{});}
+  catch(e){toast('⚠ ลบ cloud ไม่สมบูรณ์','err');}
 }
-
-// ===== CABINET CRUD =====
 async function addCabinet(){
   const roomId=document.getElementById('cab-room-id').value;
   const code=document.getElementById('cab-code').value.trim();
@@ -677,74 +697,273 @@ async function addCabinet(){
   if(!code){alert('กรุณาใส่รหัสตู้');return;}
   if(db.cabinets.find(c=>c.roomId===roomId&&c.code.toLowerCase()===code.toLowerCase())){alert('รหัสตู้นี้มีอยู่แล้ว');return;}
   const row={id:uid(),roomId,code,note,createdAt:new Date().toISOString()};
-  db.cabinets.push(row); cacheLocal();
-  closeModal('cabinet'); renderRooms(); populateAllSelects();
-  try{ await api('addCabinet',{row}); toast('✓ เพิ่มตู้แล้ว'); }
-  catch(e){ toast('⚠ บันทึก cloud ไม่ได้','err'); }
+  db.cabinets.push(row);cacheLocal();closeModal('cabinet');renderRooms();populateAllSelects();
+  try{await api('addCabinet',{row});toast('✓ เพิ่มตู้แล้ว');}catch(e){toast('⚠ บันทึก cloud ไม่ได้','err');}
 }
 async function deleteCabinet(id){
   if(!confirm('ลบตู้นี้? สต็อกในตู้จะถูกลบด้วย'))return;
   db.cabinets=db.cabinets.filter(c=>c.id!==id);
   db.stocks=db.stocks.filter(s=>s.cabinetId!==id);
-  cacheLocal(); renderRooms(); populateAllSelects();
-  try{ await api('deleteCabinet',{id}); }
-  catch(e){ toast('⚠ ลบ cloud ไม่สมบูรณ์','err'); }
+  cacheLocal();renderRooms();populateAllSelects();
+  try{await api('deleteCabinet',{id});}catch(e){toast('⚠ ลบ cloud ไม่สมบูรณ์','err');}
 }
 
-// ===== DEPOSIT =====
+// ===== DEPOSIT (หลายเบอร์) =====
 async function doDeposit(){
   const roomId=document.getElementById('dep-room').value;
   const cabId=document.getElementById('dep-cab').value;
-  const glassNo=document.getElementById('dep-glass').value;
-  const qty=parseInt(document.getElementById('dep-qty').value);
-  const unit=document.getElementById('dep-unit').value.trim()||'กก.';
   const date=document.getElementById('dep-date').value;
+  const unit=document.getElementById('dep-unit').value.trim()||'ลัง';
+  const person=document.getElementById('dep-person').value.trim();
   const note=document.getElementById('dep-note').value.trim();
   if(!roomId){alert('เลือกห้องเย็นก่อน');return;}
   if(!cabId){alert('เลือกตู้ก่อน');return;}
-  if(!glassNo){alert('เลือกเบอร์แก้วก่อน');return;}
-  if(!qty||qty<1){alert('จำนวนต้องมากกว่า 0');return;}
   if(!date){alert('เลือกวันที่ฝากก่อน');return;}
+
+  const rows=document.getElementById('dep-items').querySelectorAll('div');
+  const items=[];
+  for(const row of rows){
+    const sel=row.querySelector('select');const inp=row.querySelector('input');
+    if(!sel||!inp)continue;
+    const g=sel.value;const q=parseInt(inp.value);
+    if(!g||!q||q<1)continue;
+    items.push({glassNo:g,qty:q});
+  }
+  if(items.length===0){alert('กรุณาเพิ่มอย่างน้อย 1 เบอร์');return;}
+
+  const batchId=uid();
   const expiry=addDays(date,15);
-  const sid=uid(); const hid=uid();
-  const stockRow={id:sid,roomId,cabinetId:cabId,glassNo,qty,unit,depositDate:date,expiry,note};
-  const histRow={id:hid,type:'deposit',stockId:sid,roomId,cabinetId:cabId,glassNo,qty,unit,note,date:new Date().toISOString()};
-  db.stocks.push(stockRow);
-  db.history.push(histRow);
-  cacheLocal(); closeModal('deposit');
-  ['dep-qty','dep-note'].forEach(i=>document.getElementById(i).value='');
-  document.getElementById('dep-glass').value='';
-  document.getElementById('dep-date').value=today();
-  renderStock();
+  const newStocks=[];const newHistories=[];
+
+  items.forEach(item=>{
+    const sid=uid();const hid=uid();
+    const stockRow={id:sid,roomId,cabinetId:cabId,glassNo:item.glassNo,qty:item.qty,unit,depositDate:date,expiry,note,person,batchId,cancelled:false};
+    const histRow={id:hid,type:'deposit',stockId:sid,batchId,roomId,cabinetId:cabId,glassNo:item.glassNo,qty:item.qty,unit,note,person,date:new Date().toISOString(),cancelled:false};
+    db.stocks.push(stockRow);db.history.push(histRow);
+    newStocks.push(stockRow);newHistories.push(histRow);
+  });
+
+  cacheLocal();closeModal('deposit');renderStock();
+  toast(`✓ ฝาก ${items.length} เบอร์ รวม ${items.reduce((a,i)=>a+i.qty,0)} ${unit}`);
+
   try{
-    await api('addStock',{row:stockRow});
-    await api('addHistory',{row:histRow});
-    toast('✓ ฝากสินค้าแล้ว');
-  } catch(e){ toast('⚠ บันทึก cloud ไม่ได้ — บันทึกไว้ local แล้ว','err'); }
+    for(const s of newStocks)await api('addStock',{row:s});
+    for(const h of newHistories)await api('addHistory',{row:h});
+  }catch(e){toast('⚠ บันทึก cloud ไม่ได้','err');}
 }
 
-// ===== WITHDRAW =====
-async function doWithdraw(){
-  const sid=document.getElementById('wth-stock').value;
-  const qty=parseInt(document.getElementById('wth-qty').value);
+// ===== WITHDRAW (หลายเบอร์) =====
+async function doWithdraw(printAfter=false){
+  const person=document.getElementById('wth-person').value.trim();
   const note=document.getElementById('wth-note').value.trim();
-  const stock=db.stocks.find(s=>s.id===sid);
-  if(!stock){alert('เลือกสต็อกก่อน');return;}
-  if(!qty||qty<1){alert('จำนวนต้องมากกว่า 0');return;}
-  if(qty>stock.qty){alert(`เบิกเกิน! มีแค่ ${stock.qty} ${stock.unit}`);return;}
-  stock.qty-=qty;
-  const hid=uid();
-  const histRow={id:hid,type:'withdraw',stockId:sid,roomId:stock.roomId,cabinetId:stock.cabinetId,
-    glassNo:stock.glassNo,qty,unit:stock.unit,note,date:new Date().toISOString()};
-  db.history.push(histRow);
-  cacheLocal(); closeModal('withdraw');
-  document.getElementById('wth-qty').value='';document.getElementById('wth-note').value='';
-  renderStock();
+
+  const rows=document.getElementById('wth-items').querySelectorAll('div');
+  const items=[];
+  for(const row of rows){
+    const sel=row.querySelector('select');const inp=row.querySelector('input');
+    if(!sel||!inp)continue;
+    const sid=sel.value;const q=parseInt(inp.value);
+    if(!sid||!q||q<1)continue;
+    const stock=db.stocks.find(s=>s.id===sid);
+    if(!stock){alert('ไม่พบสต็อก กรุณา Refresh');return;}
+    if(q>stock.qty){alert(`เบิกเกิน! ${stock.glassNo} มีแค่ ${stock.qty} ${stock.unit}`);return;}
+    items.push({stock,qty:q});
+  }
+  if(items.length===0){alert('กรุณาเพิ่มอย่างน้อย 1 เบอร์');return;}
+
+  const batchId=uid();
+  const wthDate=new Date().toISOString();
+  const newHistories=[];
+  const updatedStocks=[];
+
+  items.forEach(({stock,qty})=>{
+    stock.qty-=qty;
+    const hid=uid();
+    const histRow={id:hid,type:'withdraw',stockId:stock.id,batchId,roomId:stock.roomId,cabinetId:stock.cabinetId,glassNo:stock.glassNo,qty,unit:stock.unit,note,person,date:wthDate,cancelled:false};
+    db.history.push(histRow);
+    newHistories.push(histRow);
+    updatedStocks.push({id:stock.id,qty:stock.qty});
+  });
+
+  cacheLocal();closeModal('withdraw');renderStock();
+  toast(`✓ เบิก ${items.length} เบอร์`);
+
+  if(printAfter) printSlip(items,person,note,batchId,wthDate);
+
   try{
-    await api('updateStock',{id:sid, qty:stock.qty});
-    await api('addHistory',{row:histRow});
-    toast('✓ เบิกสินค้าแล้ว');
-  } catch(e){ toast('⚠ บันทึก cloud ไม่ได้ — บันทึกไว้ local แล้ว','err'); }
+    for(const s of updatedStocks)await api('updateStock',{id:s.id,qty:s.qty});
+    for(const h of newHistories)await api('addHistory',{row:h});
+  }catch(e){toast('⚠ บันทึก cloud ไม่ได้','err');}
+}
+
+// ===== SLIP HTML BUILDER =====
+function buildSlipHTML(items,person,note,batchId,dateStr){
+  const d=new Date(dateStr);
+  const dateDisplay=d.toLocaleDateString('th-TH',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const timeDisplay=d.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'});
+  const firstStock=items[0].stock;
+  // grouping: ถ้าหลายตู้ แสดงแยก
+  const rooms=[...new Set(items.map(i=>i.stock.roomId))].map(rid=>getRoomName(rid)).join(', ');
+  const cabs=[...new Set(items.map(i=>i.stock.cabinetId))].map(cid=>getCabCode(cid)).join(', ');
+  const totalQty=items.reduce((a,i)=>a+i.qty,0);
+  const unit=firstStock.unit;
+  return`
+    <div style="text-align:center;margin-bottom:1.2rem;border-bottom:2px solid #000;padding-bottom:0.9rem;">
+      <div style="font-size:1.2rem;font-weight:700;">🐉 ร้านอนันต์ แก้วมังกร</div>
+      <div style="font-size:0.85rem;color:#555;margin-top:0.2rem;">ใบเบิกสินค้า</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:0.6rem;">
+      <div><strong>วันที่:</strong> ${dateDisplay} เวลา ${timeDisplay}</div>
+      <div><strong>เลขที่:</strong> ${batchId.slice(-6).toUpperCase()}</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:0.6rem;">
+      <div><strong>ห้องเย็น:</strong> ${rooms}</div>
+      <div><strong>ตู้:</strong> ${cabs}</div>
+    </div>
+    <div style="font-size:0.82rem;margin-bottom:1rem;"><strong>ผู้เบิก:</strong> ${person||'-'}</div>
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:0.8rem;">
+      <thead><tr>
+        <th style="background:#eee;padding:0.35rem 0.6rem;text-align:left;border:1px solid #ccc;">#</th>
+        <th style="background:#eee;padding:0.35rem 0.6rem;text-align:left;border:1px solid #ccc;">เบอร์แก้ว</th>
+        <th style="background:#eee;padding:0.35rem 0.6rem;text-align:right;border:1px solid #ccc;">จำนวน (${unit})</th>
+      </tr></thead>
+      <tbody>${items.map((item,i)=>`<tr>
+        <td style="padding:0.3rem 0.6rem;border:1px solid #ccc;">${i+1}</td>
+        <td style="padding:0.3rem 0.6rem;border:1px solid #ccc;">${item.stock.glassNo}</td>
+        <td style="padding:0.3rem 0.6rem;border:1px solid #ccc;text-align:right;">${item.qty}</td>
+      </tr>`).join('')}</tbody>
+    </table>
+    <div style="text-align:right;font-weight:700;font-size:0.9rem;margin-bottom:0.5rem;">รวม ${totalQty} ${unit}</div>
+    ${note?`<div style="font-size:0.78rem;color:#555;margin-top:0.3rem;">หมายเหตุ: ${note}</div>`:''}
+    <div style="display:flex;justify-content:space-between;margin-top:2.5rem;font-size:0.8rem;">
+      <div style="text-align:center;width:42%;">
+        <div style="border-top:1px solid #000;padding-top:0.3rem;">ผู้เบิก</div>
+        <div style="margin-top:0.2rem;">${person||'.....................'}</div>
+      </div>
+      <div style="text-align:center;width:42%;">
+        <div style="border-top:1px solid #000;padding-top:0.3rem;">ผู้อนุมัติ</div>
+        <div style="margin-top:0.2rem;">.....................</div>
+      </div>
+    </div>`;
+}
+
+// preview modal
+function printSlip(items,person,note,batchId,dateStr){
+  document.getElementById('slip-preview-content').innerHTML=buildSlipHTML(items,person,note,batchId,dateStr);
+  document.getElementById('modal-preview').classList.add('open');
+}
+
+// ===== STOCK SUMMARY PRINT =====
+function openStockPrintPreview(){
+  const now=new Date();
+  const dateStr=now.toLocaleDateString('th-TH',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  let html=`
+    <div style="text-align:center;margin-bottom:1rem;border-bottom:2px solid #000;padding-bottom:0.75rem;">
+      <div style="font-size:1.1rem;font-weight:700;">🐉 ร้านอนันต์ แก้วมังกร</div>
+      <div style="font-size:0.82rem;color:#555;">สรุปสต็อกแก้วมังกรคงเหลือ — พิมพ์ ${dateStr}</div>
+    </div>`;
+
+  const rooms=db.rooms.filter(r=>getRoomCabs(r.id).length>0);
+  if(rooms.length===0){html+='<p style="color:#888;text-align:center;">ไม่มีข้อมูลสต็อก</p>';}
+
+  rooms.forEach(room=>{
+    const cabs=getRoomCabs(room.id);
+    const roomStocks=activeStocks().filter(s=>s.roomId===room.id);
+    const grandTotal=roomStocks.reduce((a,s)=>a+s.qty,0);
+    if(grandTotal===0&&roomStocks.length===0)return;
+
+    html+=`<div style="margin-bottom:1.2rem;">
+      <div style="font-weight:700;font-size:0.9rem;margin-bottom:0.4rem;background:#f0f0f0;padding:0.3rem 0.5rem;border-radius:4px;">🧊 ${room.name}</div>
+      <table style="width:100%;border-collapse:collapse;font-size:0.78rem;">
+        <thead><tr>
+          <th style="background:#e8e8e8;padding:0.3rem 0.5rem;border:1px solid #ccc;text-align:left;">เบอร์แก้ว</th>
+          <th style="background:#e8e8e8;padding:0.3rem 0.5rem;border:1px solid #ccc;text-align:center;">รวม</th>
+          ${cabs.map(c=>`<th style="background:#e8e8e8;padding:0.3rem 0.5rem;border:1px solid #ccc;text-align:center;">ตู้ ${c.code}</th>`).join('')}
+        </tr></thead>
+        <tbody>`;
+
+    let shownAny=false;
+    GLASS_SIZES.forEach(g=>{
+      const rowTotal=roomStocks.filter(s=>s.glassNo===g).reduce((a,s)=>a+s.qty,0);
+      const cabVals=cabs.map(cab=>activeStocks().filter(s=>s.cabinetId===cab.id&&s.glassNo===g).reduce((a,s)=>a+s.qty,0));
+      if(rowTotal===0)return;
+      shownAny=true;
+      const dl=roomStocks.filter(s=>s.glassNo===g).reduce((mn,s)=>{const d=daysLeft(s.expiry);return d<mn?d:mn;},999);
+      const statusColor=dl<0?'#ff4d6d':dl<=3?'#ff9800':'inherit';
+      html+=`<tr>
+        <td style="padding:0.28rem 0.5rem;border:1px solid #ddd;font-weight:600;">${g}</td>
+        <td style="padding:0.28rem 0.5rem;border:1px solid #ddd;text-align:center;font-weight:700;color:${statusColor};">${rowTotal}</td>
+        ${cabVals.map(v=>`<td style="padding:0.28rem 0.5rem;border:1px solid #ddd;text-align:center;">${v>0?v:'-'}</td>`).join('')}
+      </tr>`;
+    });
+
+    if(!shownAny){
+      const span=2+cabs.length;
+      html+=`<tr><td colspan="${span}" style="text-align:center;padding:0.5rem;color:#aaa;">ไม่มีสต็อก</td></tr>`;
+    }
+
+    // แถวรวม
+    html+=`<tr style="background:#f5f5f5;font-weight:700;">
+      <td style="padding:0.3rem 0.5rem;border:1px solid #ccc;">รวม</td>
+      <td style="padding:0.3rem 0.5rem;border:1px solid #ccc;text-align:center;">${grandTotal}</td>
+      ${cabs.map(cab=>{const t=activeStocks().filter(s=>s.cabinetId===cab.id).reduce((a,s)=>a+s.qty,0);return`<td style="padding:0.3rem 0.5rem;border:1px solid #ccc;text-align:center;">${t>0?t:'-'}</td>`;}).join('')}
+    </tr>`;
+    html+=`</tbody></table></div>`;
+  });
+
+  // legend สี
+  html+=`<div style="margin-top:0.75rem;font-size:0.72rem;color:#666;">
+    * <span style="color:#ff4d6d;">สีแดง</span> = หมดอายุแล้ว &nbsp;
+    <span style="color:#ff9800;">สีส้ม</span> = เหลือ ≤3 วัน
+  </div>`;
+
+  document.getElementById('stock-print-content').innerHTML=html;
+  document.getElementById('modal-stock-print').classList.add('open');
+}
+
+// ===== EXECUTE PRINT =====
+let _printTarget='slip';
+function doPrint(target){
+  _printTarget=target;
+  const contentId=target==='slip'?'slip-preview-content':'stock-print-content';
+  const content=document.getElementById(contentId).innerHTML;
+  const win=window.open('','_blank','width=700,height=900');
+  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      body{font-family:'IBM Plex Sans Thai',sans-serif;padding:1.5cm 1.8cm;color:#000;background:#fff;font-size:10pt;}
+      @media print{body{padding:1cm 1.2cm;}@page{size:A4;margin:1.5cm;}}
+    </style>
+    </head><body>${content}<script>window.onload=function(){window.print();setTimeout(()=>window.close(),500);}<\/script></body></html>`);
+  win.document.close();
+}
+
+// ===== CANCEL =====
+function openCancelModal(histId){
+  const h=db.history.find(x=>x.id===histId);
+  if(!h)return;
+  cancelTargetId=histId;
+  const type=h.type==='deposit'?'ฝาก':'เบิก';
+  document.getElementById('cancel-desc').textContent=`ยกเลิกรายการ${type}: ${h.glassNo} จำนวน ${h.qty} ${h.unit} — ${getRoomName(h.roomId)} / ตู้ ${getCabCode(h.cabinetId)}`;
+  document.getElementById('modal-cancel').classList.add('open');
+}
+async function confirmCancel(){
+  const h=db.history.find(x=>x.id===cancelTargetId);
+  if(!h||h.cancelled){closeModal('cancel');return;}
+  h.cancelled=true;
+  // rollback สต็อก
+  if(h.type==='withdraw'){
+    const s=db.stocks.find(x=>x.id===h.stockId);
+    if(s){s.qty+=h.qty;await api('updateStock',{id:s.id,qty:s.qty}).catch(()=>{});}
+  }else if(h.type==='deposit'){
+    const s=db.stocks.find(x=>x.id===h.stockId);
+    if(s){s.qty=Math.max(0,s.qty-h.qty);s.cancelled=s.qty<=0;await api('updateStock',{id:s.id,qty:s.qty}).catch(()=>{});}
+  }
+  cacheLocal();
+  await api('cancelHistory',{id:h.id}).catch(()=>{});
+  closeModal('cancel');renderHistory();renderStock();renderDashboard();
+  toast('✓ ยกเลิกรายการแล้ว');
+  cancelTargetId=null;
 }
 
 // ===== RENDER ROOMS =====
@@ -753,41 +972,11 @@ function renderRooms(){
   if(db.rooms.length===0){container.innerHTML=`<div class="empty"><div class="icon">🧊</div><div>ยังไม่มีห้องเย็น</div></div>`;return;}
   container.innerHTML=db.rooms.map(room=>{
     const cabs=getRoomCabs(room.id);
-    const stocks=db.stocks.filter(s=>s.roomId===room.id&&s.qty>0);
+    const stocks=activeStocks().filter(s=>s.roomId===room.id);
     const near=stocks.filter(s=>daysLeft(s.expiry)<=3).length;
-    const cabRows=cabs.length===0
-      ?`<div style="color:var(--muted);font-size:0.78rem;padding:0.4rem 0;font-style:italic;">ยังไม่มีตู้</div>`
-      :cabs.map(c=>{
-        const cs=db.stocks.filter(s=>s.cabinetId===c.id&&s.qty>0);
-        const glassInCab=[...new Set(cs.map(s=>s.glassNo))].join(', ');
-        return`<div class="cabinet-row">
-          <span class="ccod">${c.code}</span>
-          <span style="font-size:0.75rem;color:var(--muted);">${c.note||''}</span>
-          <span class="badge blue">${cs.length} รายการ</span>
-          ${glassInCab?`<span style="font-size:0.7rem;color:var(--muted);">${glassInCab}</span>`:''}
-          <div class="cab-actions">
-            <button class="btn-ghost" onclick="deleteCabinet('${c.id}')">🗑</button>
-          </div>
-        </div>`;
-      }).join('');
-    return`<div class="room-block">
-      <div class="room-block-header">
-        <div>
-          <div class="room-block-name">🧊 ${room.name}</div>
-          ${room.temp?`<div style="font-size:0.7rem;color:var(--muted);font-family:var(--mono)">${room.temp}°C</div>`:''}
-        </div>
-        <div style="display:flex;align-items:center;gap:0.4rem;">
-          ${near>0?`<span class="badge warn">⚠ ${near}</span>`:`<span class="badge green">✓</span>`}
-          <button class="btn-ghost" onclick="deleteRoom('${room.id}')">🗑</button>
-        </div>
-      </div>
-      <div class="cabinets-list">${cabRows}</div>
-      <div class="room-block-footer">
-        <button class="btn btn-outline btn-sm" onclick="openCabinetModal('${room.id}')">🗄 เพิ่มตู้</button>
-        <button class="btn btn-success btn-sm" onclick="openModal('deposit')">📥 ฝาก</button>
-        <button class="btn btn-warn btn-sm" onclick="openModal('withdraw')">📤 เบิก</button>
-      </div>
-    </div>`;
+    const cabRows=cabs.length===0?`<div style="color:var(--muted);font-size:0.76rem;padding:0.35rem 0;font-style:italic;">ยังไม่มีตู้</div>`
+      :cabs.map(c=>{const cs=activeStocks().filter(s=>s.cabinetId===c.id);return`<div class="cabinet-row"><span class="ccod">${c.code}</span><span style="font-size:0.73rem;color:var(--muted);">${c.note||''}</span><span class="badge blue">${cs.length} รายการ</span><div class="cab-actions"><button class="btn-ghost" onclick="deleteCabinet('${c.id}')">🗑</button></div></div>`;}).join('');
+    return`<div class="room-block"><div class="room-block-header"><div><div class="room-block-name">🧊 ${room.name}</div>${room.temp?`<div style="font-size:0.68rem;color:var(--muted);font-family:var(--mono)">${room.temp}°C</div>`:''}</div><div style="display:flex;align-items:center;gap:0.35rem;">${near>0?`<span class="badge warn">⚠${near}</span>`:`<span class="badge green">✓</span>`}<button class="btn-ghost" onclick="deleteRoom('${room.id}')">🗑</button></div></div><div class="cabinets-list">${cabRows}</div><div class="room-block-footer"><button class="btn btn-outline btn-sm" onclick="openCabinetModal('${room.id}')">🗄 เพิ่มตู้</button><button class="btn btn-success btn-sm" onclick="openModal('deposit')">📥 ฝาก</button><button class="btn btn-warn btn-sm" onclick="openModal('withdraw')">📤 เบิก</button></div></div>`;
   }).join('');
 }
 
@@ -797,29 +986,13 @@ function renderStock(){
   const cid=document.getElementById('sf-cab').value;
   const gno=document.getElementById('sf-glass').value;
   const tbody=document.getElementById('stock-table');
-  let stocks=db.stocks.filter(s=>s.qty>0);
+  let stocks=activeStocks();
   if(rid)stocks=stocks.filter(s=>s.roomId===rid);
   if(cid)stocks=stocks.filter(s=>s.cabinetId===cid);
   if(gno)stocks=stocks.filter(s=>s.glassNo===gno);
-  stocks.sort((a,b)=>{
-    const ri=db.rooms.findIndex(r=>r.id===a.roomId)-db.rooms.findIndex(r=>r.id===b.roomId);
-    if(ri!==0)return ri;
-    return daysLeft(a.expiry)-daysLeft(b.expiry);
-  });
+  stocks.sort((a,b)=>daysLeft(a.expiry)-daysLeft(b.expiry));
   if(stocks.length===0){tbody.innerHTML=`<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--muted);">ไม่มีสต็อก</td></tr>`;return;}
-  tbody.innerHTML=stocks.map(s=>{
-    const dl=daysLeft(s.expiry);
-    return`<tr>
-      <td><span class="gcod">${s.glassNo||'-'}</span></td>
-      <td>${getRoomName(s.roomId)}</td>
-      <td><span class="ccod">${getCabCode(s.cabinetId)}</span></td>
-      <td class="mono">${s.qty}</td>
-      <td>${s.unit}</td>
-      <td class="mono" style="font-size:0.78rem;">${fmtDate(s.depositDate)}</td>
-      <td class="mono" style="font-size:0.78rem;">${fmtDate(s.expiry)}</td>
-      <td>${expiryBadge(dl)}</td>
-    </tr>`;
-  }).join('');
+  tbody.innerHTML=stocks.map(s=>`<tr><td><span class="gcod">${s.glassNo||'-'}</span></td><td>${getRoomName(s.roomId)}</td><td><span class="ccod">${getCabCode(s.cabinetId)}</span></td><td class="mono">${s.qty}</td><td>${s.unit}</td><td class="mono" style="font-size:0.76rem;">${fmtDate(s.depositDate)}</td><td class="mono" style="font-size:0.76rem;">${fmtDate(s.expiry)}</td><td>${expiryBadge(daysLeft(s.expiry))}</td></tr>`).join('');
 }
 
 // ===== RENDER HISTORY =====
@@ -834,138 +1007,75 @@ function renderHistory(){
   if(cid)hist=hist.filter(h=>h.cabinetId===cid);
   if(gno)hist=hist.filter(h=>h.glassNo===gno);
   if(type)hist=hist.filter(h=>h.type===type);
-  if(hist.length===0){tbody.innerHTML=`<tr><td colspan="8" style="text-align:center;padding:2rem;color:var(--muted);">ไม่มีประวัติ</td></tr>`;return;}
-  tbody.innerHTML=hist.map(h=>`<tr>
-    <td class="mono" style="font-size:0.75rem;">${fmtDT(h.date)}</td>
-    <td>${h.type==='deposit'?'<span class="badge green">📥 ฝาก</span>':'<span class="badge warn">📤 เบิก</span>'}</td>
+  if(hist.length===0){tbody.innerHTML=`<tr><td colspan="10" style="text-align:center;padding:2rem;color:var(--muted);">ไม่มีประวัติ</td></tr>`;return;}
+  tbody.innerHTML=hist.map(h=>`<tr class="${h.cancelled?'cancelled':''}">
+    <td class="mono" style="font-size:0.72rem;">${fmtDT(h.date)}</td>
+    <td>${h.type==='deposit'?'<span class="badge green">📥 ฝาก</span>':'<span class="badge warn">📤 เบิก</span>'}${h.cancelled?'<span class="badge gray" style="margin-left:4px;">ยกเลิก</span>':''}</td>
     <td><span class="gcod">${h.glassNo||'-'}</span></td>
     <td>${getRoomName(h.roomId)}</td>
     <td><span class="ccod">${getCabCode(h.cabinetId)}</span></td>
     <td class="mono">${h.qty}</td>
     <td>${h.unit}</td>
-    <td style="color:var(--muted);font-size:0.75rem;">${h.note||'-'}</td>
+    <td style="font-size:0.76rem;">${h.person||'-'}</td>
+    <td style="color:var(--muted);font-size:0.74rem;">${h.note||'-'}</td>
+    <td>${!h.cancelled?`<button class="btn btn-outline btn-sm" onclick="openCancelModal('${h.id}')" style="border-color:var(--danger);color:var(--danger);">ยกเลิก</button>`:'-'}</td>
   </tr>`).join('');
 }
 
-// ===== RENDER SUMMARY (ตารางแบบรูป) =====
+// ===== RENDER SUMMARY =====
 function renderSummary(){
   const filterRoomId=document.getElementById('sum-room-filter').value;
   const container=document.getElementById('summary-container');
   const rooms=filterRoomId?db.rooms.filter(r=>r.id===filterRoomId):db.rooms;
-
-  if(rooms.length===0){container.innerHTML=`<div class="empty"><div class="icon">🧊</div><div>ไม่มีข้อมูล</div></div>`;return;}
-
-  // legend
-  const legend=`<div class="age-legend">
-    <span style="font-size:0.75rem;color:var(--muted);font-family:var(--mono);">อายุสต็อก:</span>
-    <span class="age-dot"><span class="d1"></span>1–4 วัน (สด)</span>
-    <span class="age-dot"><span class="d2"></span>5–9 วัน</span>
-    <span class="age-dot"><span class="d3"></span>10–15 วัน (ใกล้หมด)</span>
-    <span class="age-dot"><span class="d4"></span>เกิน 15 วัน (หมดอายุ)</span>
-  </div>`;
-
+  const legend=`<div class="age-legend"><span style="font-size:0.72rem;color:var(--muted);font-family:var(--mono);">อายุสต็อก:</span><span class="age-dot"><span class="d1"></span>1–4 วัน (สด)</span><span class="age-dot"><span class="d2"></span>5–9 วัน</span><span class="age-dot"><span class="d3"></span>10–15 วัน (ใกล้หมด)</span><span class="age-dot"><span class="d4"></span>เกิน 15 วัน (หมดอายุ)</span></div>`;
   let html=legend;
   rooms.forEach(room=>{
-    const cabs=getRoomCabs(room.id);
-    if(cabs.length===0) return;
-
-    const roomStocks=db.stocks.filter(s=>s.roomId===room.id&&s.qty>0);
-
-    // ข้อมูลแต่ละตู้: หาวันฝากเก่าสุด (เพื่อคำนวณอายุตู้)
+    const cabs=getRoomCabs(room.id);if(cabs.length===0)return;
+    const roomStocks=activeStocks().filter(s=>s.roomId===room.id);
     const cabInfo=cabs.map(cab=>{
-      const cabStocks=db.stocks.filter(s=>s.cabinetId===cab.id&&s.qty>0);
-      if(cabStocks.length===0)return{cab,depositDate:null,expiry:null,total:0,ageDays:null};
-      const depositDate=cabStocks.reduce((a,s)=>(!a||s.depositDate<a)?s.depositDate:a,null);
-      const expiry=cabStocks.reduce((a,s)=>(!a||s.expiry<a)?s.expiry:a,null);
-      const total=cabStocks.reduce((a,s)=>a+s.qty,0);
-      const ageDays=depositDate?daysSince(depositDate):null;
-      return{cab,depositDate,expiry,total,ageDays};
+      const cs=activeStocks().filter(s=>s.cabinetId===cab.id);
+      if(cs.length===0)return{cab,depositDate:null,expiry:null,total:0,ageDays:null};
+      const depositDate=cs.reduce((a,s)=>(!a||s.depositDate<a)?s.depositDate:a,null);
+      const expiry=cs.reduce((a,s)=>(!a||s.expiry<a)?s.expiry:a,null);
+      return{cab,depositDate,expiry,total:cs.reduce((a,s)=>a+s.qty,0),ageDays:depositDate?daysSince(depositDate):null};
     });
-
-    html+=`<div class="summary-section">
-      <h2>🧊 ${room.name}</h2>
-      <div class="summary-wrap">
-      <table class="summary-table">
-        <thead>
-          <tr class="thead-room">
-            <th style="text-align:left;" rowspan="2">เบอร์แก้ว</th>
-            <th class="th-room-main" colspan="2" style="border-bottom:1px solid var(--border);">รวม ${room.name}</th>
-            ${cabs.map(c=>`<th colspan="1" class="th-room-main">${room.name}<br><span style="font-size:0.68rem;color:var(--muted)">ตู้ ${c.code}</span></th>`).join('')}
-          </tr>
-          <tr class="thead-date">
-            <th>รวม</th>
-            <th>สถานะ</th>
-            ${cabInfo.map(ci=>{
-              if(!ci.depositDate) return'<th style="color:var(--border)">ว่าง</th>';
-              const dl=daysLeft(ci.expiry);
-              const cls=dl<0?'exp-warn':dl<=3?'exp-warn':'exp-ok';
-              // แสดงวันฝาก + ฝากมากี่วัน + หมดเมื่อไหร่
-              const ageLabel=ci.ageDays===0?'วันนี้':`${ci.ageDays} วันที่แล้ว`;
-              return`<th class="${cls}" style="line-height:1.5;">
-                ${fmtDate(ci.depositDate)}<br>
-                <span style="font-size:0.65rem;opacity:0.8;">ฝากมา ${ageLabel}</span><br>
-                <span style="font-size:0.62rem;">หมด ${fmtDate(ci.expiry)}</span>
-              </th>`;
-            }).join('')}
-          </tr>
-        </thead>
-        <tbody>`;
-
-    let grandTotal=0;
-    GLASS_SIZES.forEach(g=>{
-      const roomTotal=roomStocks.filter(s=>s.glassNo===g).reduce((a,s)=>a+s.qty,0);
-      grandTotal+=roomTotal;
-
-      // แต่ละตู้ — หาวันฝากเก่าสุดของเบอร์นั้นในตู้นั้น เพื่อระบายสี
-      const cabCells=cabs.map(cab=>{
-        const cabGlassStocks=db.stocks.filter(s=>s.cabinetId===cab.id&&s.glassNo===g&&s.qty>0);
-        const val=cabGlassStocks.reduce((a,s)=>a+s.qty,0);
-        if(val===0) return`<td class="zero">-</td>`;
-        // หาวันฝากเก่าสุดของเบอร์นี้ในตู้นี้
-        const oldestDep=cabGlassStocks.reduce((a,s)=>(!a||s.depositDate<a)?s.depositDate:a,null);
-        const ageClass=ageCellClass(oldestDep);
-        const ageDays=oldestDep?daysSince(oldestDep):null;
-        const tooltip=ageDays!==null?`title="ฝากมา ${ageDays} วัน"`:'' ;
-        return`<td class="has-val ${ageClass}" ${tooltip}>${val}</td>`;
-      }).join('');
-
-      // สถานะรวมของเบอร์นี้ในห้องนี้
-      const soonExpiry=roomStocks.filter(s=>s.glassNo===g).reduce((min,s)=>{
-        const dl=daysLeft(s.expiry);return dl<min?dl:min;
-      },999);
-      let statusBadge='';
-      if(roomTotal>0){
-        if(soonExpiry<0) statusBadge='<span class="badge red">หมดอายุ</span>';
-        else if(soonExpiry<=3) statusBadge=`<span class="badge warn">${soonExpiry}วัน</span>`;
-        else statusBadge='<span class="badge green">ปกติ</span>';
-      }
-
-      html+=`<tr>
-        <td class="glass-label"><span class="gcod">${g}</span></td>
-        <td class="${roomTotal>0?'total-col':'zero'}">${roomTotal>0?roomTotal:'-'}</td>
-        <td>${statusBadge}</td>
-        ${cabCells}
-      </tr>`;
-    });
-
-    // แถวรวม + แสดงอายุตู้
-    const cabTotals=cabInfo.map(ci=>{
-      const t=ci.total;
-      const ageClass=ci.depositDate?ageCellClass(ci.depositDate):'';
-      const label=ci.ageDays!==null?(ci.ageDays===0?'วันนี้':`${ci.ageDays} วัน`):'';
-      return`<td class="row-total ${ageClass}">${t>0?t:'-'}${label?`<br><span style="font-size:0.65rem;opacity:0.75;">${label}</span>`:''}`;
-    }).join('');
-    html+=`<tr>
-      <td class="glass-label" style="color:var(--ok);font-weight:700;">รวม</td>
-      <td class="row-total">${grandTotal}</td>
-      <td></td>
-      ${cabTotals}
-    </tr>`;
-
-    html+=`</tbody></table></div></div>`;
+    html+=`<div class="summary-section"><h2>🧊 ${room.name}</h2><div class="summary-wrap"><table class="summary-table">
+      <thead>
+        <tr class="thead-room">
+          <th style="text-align:left;" rowspan="2">เบอร์แก้ว</th>
+          <th class="th-room-main" colspan="2">รวม ${room.name}</th>
+          ${cabs.map(c=>`<th class="th-room-main">${room.name}<br><span style="font-size:0.65rem;color:var(--muted)">ตู้ ${c.code}</span></th>`).join('')}
+        </tr>
+        <tr class="thead-date">
+          <th>รวม</th><th>สถานะ</th>
+          ${cabInfo.map(ci=>{
+            if(!ci.depositDate)return'<th style="color:var(--border)">ว่าง</th>';
+            const dl=daysLeft(ci.expiry);const cls=dl<=3?'exp-warn':'exp-ok';
+            const ageLabel=ci.ageDays===0?'วันนี้':`${ci.ageDays} วันที่แล้ว`;
+            return`<th class="${cls}">${fmtDate(ci.depositDate)}<br><span style="font-size:0.62rem;opacity:0.8;">ฝากมา ${ageLabel}</span><br><span style="font-size:0.6rem;">หมด ${fmtDate(ci.expiry)}</span></th>`;
+          }).join('')}
+        </tr>
+      </thead>
+      <tbody>
+      ${GLASS_SIZES.map(g=>{
+        const roomTotal=roomStocks.filter(s=>s.glassNo===g).reduce((a,s)=>a+s.qty,0);
+        const soonExp=roomStocks.filter(s=>s.glassNo===g).reduce((min,s)=>{const dl=daysLeft(s.expiry);return dl<min?dl:min;},999);
+        let statusBadge='';
+        if(roomTotal>0){if(soonExp<0)statusBadge='<span class="badge red">หมดอายุ</span>';else if(soonExp<=3)statusBadge=`<span class="badge warn">${soonExp}วัน</span>`;else statusBadge='<span class="badge green">ปกติ</span>';}
+        const cabCells=cabs.map(cab=>{
+          const cs=activeStocks().filter(s=>s.cabinetId===cab.id&&s.glassNo===g);
+          const val=cs.reduce((a,s)=>a+s.qty,0);
+          if(val===0)return`<td class="zero">-</td>`;
+          const oldDep=cs.reduce((a,s)=>(!a||s.depositDate<a)?s.depositDate:a,null);
+          const ac=ageCellClass(oldDep);const ad=oldDep?daysSince(oldDep):null;
+          return`<td class="has-val ${ac}" title="${ad!==null?`ฝากมา ${ad} วัน`:''}">${val}</td>`;
+        }).join('');
+        return`<tr><td class="glass-label"><span class="gcod">${g}</span></td><td class="${roomTotal>0?'total-col':'zero'}">${roomTotal>0?roomTotal:'-'}</td><td>${statusBadge}</td>${cabCells}</tr>`;
+      }).join('')}
+      ${(()=>{const cabTotals=cabInfo.map(ci=>{const ac=ci.depositDate?ageCellClass(ci.depositDate):'';const lbl=ci.ageDays!==null?(ci.ageDays===0?'วันนี้':`${ci.ageDays}วัน`):'';return`<td class="row-total ${ac}">${ci.total>0?ci.total:'-'}${lbl?`<br><span style="font-size:0.62rem;opacity:0.7;">${lbl}</span>`:''}</td>`;}).join('');const grand=roomStocks.reduce((a,s)=>a+s.qty,0);return`<tr><td class="glass-label" style="color:var(--ok);font-weight:700;">รวม</td><td class="row-total">${grand}</td><td></td>${cabTotals}</tr>`;})()}
+      </tbody></table></div></div>`;
   });
-
-  if(html===legend) html+=`<div class="empty"><div class="icon">🗄</div><div>ยังไม่มีตู้ในห้องเย็น กรุณาเพิ่มตู้ก่อน</div></div>`;
+  if(html===legend)html+=`<div class="empty"><div class="icon">🗄</div><div>ยังไม่มีตู้ในห้องเย็น</div></div>`;
   container.innerHTML=html;
 }
 
@@ -973,7 +1083,7 @@ function renderSummary(){
 function renderDashboard(){
   const now=new Date();
   document.getElementById('dash-date').textContent=now.toLocaleDateString('th-TH',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  const active=db.stocks.filter(s=>s.qty>0);
+  const active=activeStocks();
   const totalUnits=active.reduce((a,s)=>a+s.qty,0);
   const expired=active.filter(s=>daysLeft(s.expiry)<0);
   const near=active.filter(s=>{const d=daysLeft(s.expiry);return d>=0&&d<=3;});
@@ -981,46 +1091,19 @@ function renderDashboard(){
     <div class="stat-card blue"><div class="stat-label">รายการทั้งหมด</div><div class="stat-value">${active.length}</div><div class="stat-sub">${totalUnits} หน่วยรวม</div></div>
     <div class="stat-card green"><div class="stat-label">ห้องเย็น</div><div class="stat-value">${db.rooms.length}</div><div class="stat-sub">${db.cabinets.length} ตู้รวม</div></div>
     <div class="stat-card warn"><div class="stat-label">ใกล้หมดอายุ ≤3 วัน</div><div class="stat-value">${near.length}</div><div class="stat-sub">รายการที่ต้องระวัง</div></div>
-    <div class="stat-card red"><div class="stat-label">หมดอายุแล้ว</div><div class="stat-value">${expired.length}</div><div class="stat-sub">ต้องดำเนินการด่วน</div></div>
-  `;
+    <div class="stat-card red"><div class="stat-label">หมดอายุแล้ว</div><div class="stat-value">${expired.length}</div><div class="stat-sub">ต้องดำเนินการด่วน</div></div>`;
   const alertItems=[...near,...expired].sort((a,b)=>daysLeft(a.expiry)-daysLeft(b.expiry)).slice(0,12);
-  const alertBox=document.getElementById('dash-alerts');
-  alertBox.innerHTML=alertItems.length===0?'':
-    `<div class="alert-box"><h3>⚠ รายการที่ต้องดูแล</h3>${alertItems.map(s=>{
-      const dl=daysLeft(s.expiry);
-      return`<div class="alert-item">${expiryBadge(dl)}<span class="gcod">${s.glassNo||'?'}</span><span style="color:var(--muted);font-size:0.8rem;">${getRoomName(s.roomId)} / ตู้ ${getCabCode(s.cabinetId)}</span><span style="margin-left:auto;font-size:0.78rem;color:var(--muted);">${s.qty} ${s.unit} · หมด ${fmtDate(s.expiry)}</span></div>`;
-    }).join('')}</div>`;
+  document.getElementById('dash-alerts').innerHTML=alertItems.length===0?'':
+    `<div class="alert-box"><h3>⚠ รายการที่ต้องดูแล</h3>${alertItems.map(s=>`<div class="alert-item">${expiryBadge(daysLeft(s.expiry))}<span class="gcod">${s.glassNo||'?'}</span><span style="color:var(--muted);font-size:0.78rem;">${getRoomName(s.roomId)} / ตู้ ${getCabCode(s.cabinetId)}</span><span style="margin-left:auto;font-size:0.76rem;color:var(--muted);">${s.qty} ${s.unit} · หมด ${fmtDate(s.expiry)}</span></div>`).join('')}</div>`;
   const tbody=document.getElementById('dash-room-table');
-  if(db.rooms.length===0){tbody.innerHTML=`<tr><td colspan="5" style="text-align:center;padding:1.5rem;color:var(--muted);">ยังไม่มีห้องเย็น</td></tr>`;return;}
   tbody.innerHTML=db.rooms.map(room=>{
     const cabs=getRoomCabs(room.id);
-    const stocks=db.stocks.filter(s=>s.roomId===room.id&&s.qty>0);
+    const stocks=activeStocks().filter(s=>s.roomId===room.id);
     const total=stocks.reduce((a,s)=>a+s.qty,0);
     const glassSet=[...new Set(stocks.map(s=>s.glassNo).filter(Boolean))];
     const n=stocks.filter(s=>{const d=daysLeft(s.expiry);return d>=0&&d<=3;}).length;
-    return`<tr>
-      <td><strong>${room.name}</strong>${room.temp?` <span style="color:var(--muted);font-size:0.75rem;">(${room.temp}°C)</span>`:''}</td>
-      <td class="mono">${cabs.length}</td>
-      <td>${glassSet.map(g=>`<span class="gcod" style="margin:1px;">${g}</span>`).join(' ')||'<span style="color:var(--muted)">-</span>'}</td>
-      <td class="mono">${total}</td>
-      <td>${n>0?`<span class="badge warn">${n} รายการ</span>`:'<span class="badge green">-</span>'}</td>
-    </tr>`;
+    return`<tr><td><strong>${room.name}</strong>${room.temp?` <span style="color:var(--muted);font-size:0.73rem;">(${room.temp}°C)</span>`:''}</td><td class="mono">${cabs.length}</td><td>${glassSet.map(g=>`<span class="gcod" style="margin:1px;">${g}</span>`).join(' ')||'<span style="color:var(--muted)">-</span>'}</td><td class="mono">${total}</td><td>${n>0?`<span class="badge warn">${n} รายการ</span>`:'<span class="badge green">-</span>'}</td></tr>`;
   }).join('');
-}
-
-// ===== REFRESH =====
-async function refreshAll(){
-  await loadFromCloud();
-  // re-render หน้าที่กำลังดูอยู่
-  const active=document.querySelector('.page.active');
-  if(active){
-    const id=active.id.replace('page-','');
-    if(id==='dashboard')renderDashboard();
-    else if(id==='summary'){populateAllSelects();renderSummary();}
-    else if(id==='rooms')renderRooms();
-    else if(id==='stock'){populateAllSelects();renderStock();}
-    else if(id==='history'){populateAllSelects();renderHistory();}
-  }
 }
 
 // ===== INIT =====
