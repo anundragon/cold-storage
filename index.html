@@ -1094,7 +1094,7 @@ function renderDashboard(){
     <div class="stat-card red"><div class="stat-label">หมดอายุแล้ว</div><div class="stat-value">${expired.length}</div><div class="stat-sub">ต้องดำเนินการด่วน</div></div>`;
   const alertItems=[...near,...expired].sort((a,b)=>daysLeft(a.expiry)-daysLeft(b.expiry)).slice(0,12);
   document.getElementById('dash-alerts').innerHTML=alertItems.length===0?'':
-    `<div class="alert-box"><h3>⚠ รายการที่ต้องดูแล</h3>${alertItems.map(s=>`<div class="alert-item">${expiryBadge(daysLeft(s.expiry))}<span class="gcod">${s.glassNo||'?'}</span><span style="color:var(--muted);font-size:0.78rem;">${getRoomName(s.roomId)} / ตู้ ${getCabCode(s.cabinetId)}</span><span style="margin-left:auto;font-size:0.76rem;color:var(--muted);">${s.qty} ${s.unit} · หมด ${fmtDate(s.expiry)}</span></div>`).join('')}</div>`;
+    `<div class="alert-box"><h3>⚠ รายการที่ต้องดูแล</h3>${alertItems.map(s=>`<div class="alert-item">${expiryBadge(daysLeft(s.expiry))}<span class="gcod">${s.glassNo||'?'}</span><span style="color:var(--muted);font-size:0.78rem;">${getRoomName(s.roomId)} / ตู้ ${getCabCode(s.cabinetId)}</span><span style="margin-left:auto;font-size:0.76rem;color:var(--muted);">${s.qty} · หมด ${fmtDate(s.expiry)}</span></div>`).join('')}</div>`;
   const tbody=document.getElementById('dash-room-table');
   tbody.innerHTML=db.rooms.map(room=>{
     const cabs=getRoomCabs(room.id);
